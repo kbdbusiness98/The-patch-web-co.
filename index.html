@@ -1,303 +1,1010 @@
-<!-- =========================
-     SERVICES
-========================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<section id="services">
+  <!-- =========================
+       BASIC META
+  ========================== -->
 
-  <div class="container">
+  <meta charset="UTF-8" />
 
-    <p class="section-label">
-      Services
-    </p>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-    <h2 class="section-title accent">
-      Clear pricing.<br>
-      Built around your business.
-    </h2>
+  <title>
+    The Patch Web Co. | Websites for Local Businesses Across Ohio
+  </title>
 
-    <p
-      style="
-      max-width:700px;
-      margin-bottom:3rem;
-      color:var(--bark);
-      font-size:1.05rem;
-      "
-    >
-      Every website we build is designed for both mobile phones and desktop computers,
-      with layouts tailored to your business style and customer needs.
-      Whether you want something simple and professional or a more custom experience,
-      we build around your goals — not a template.
-    </p>
+  <meta
+    name="description"
+    content="The Patch Web Co. builds modern, affordable websites for local businesses across Ohio. Mobile-friendly, SEO-ready, and built around your business goals."
+  />
 
-    <div class="cards">
+  <meta
+    name="keywords"
+    content="Ohio web design, local business websites, affordable websites Ohio, small business web designer"
+  />
 
-      <!-- STARTER -->
+  <meta name="author" content="The Patch Web Co." />
 
-      <div class="card">
+  <!-- =========================
+       OPEN GRAPH
+  ========================== -->
 
-        <div class="card-number">01</div>
+  <meta property="og:title" content="The Patch Web Co." />
 
-        <h3>Starter Website</h3>
+  <meta
+    property="og:description"
+    content="Modern websites for local businesses across Ohio."
+  />
 
-        <p>
-          A clean, professional website designed to establish your business online
-          with everything most local businesses need to get started.
-        </p>
+  <meta property="og:type" content="website" />
 
-        <ul
-          style="
-          margin-bottom:1.5rem;
-          padding-left:1rem;
-          color:var(--bark);
-          line-height:1.8;
-          "
-        >
-          <li>• Mobile + desktop responsive design</li>
-          <li>• 3–5 custom pages</li>
-          <li>• Contact form setup</li>
-          <li>• Google-friendly structure</li>
-          <li>• Domain connection assistance</li>
-          <li>• Business branding integration</li>
+  <meta property="og:image" content="images/og-image.jpg" />
+
+  <!-- =========================
+       FONTS
+  ========================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- =========================
+       JSON-LD SEO
+  ========================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "The Patch Web Co.",
+    "url": "https://yourdomain.com",
+    "description": "Affordable websites for local businesses across Ohio."
+  }
+  </script>
+
+  <!-- =========================
+       STYLES
+  ========================== -->
+
+  <style>
+
+    :root {
+      --soil: #1c2730;
+      --bark: #3a4e5a;
+      --moss: #3a5a72;
+      --sage: #7aaabb;
+      --cream: #e8f0f5;
+      --parchment: #f4f6f8;
+      --amber: #c47b2b;
+      --sky: #b8d4e2;
+
+      --radius: 20px;
+      --shadow: 0 12px 30px rgba(28,39,48,.08);
+      --transition: .25s ease;
+      --max-width: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Nunito", sans-serif;
+      background: var(--parchment);
+      color: var(--soil);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    section {
+      padding: 6rem 1.5rem;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: auto;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .75rem;
+      color: var(--moss);
+      font-weight: 700;
+      margin-bottom: .75rem;
+    }
+
+    .section-title {
+      font-family: "Lora", serif;
+      font-size: clamp(2rem,5vw,3.4rem);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .accent {
+      color: var(--sage);
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+
+      background: rgba(244,246,248,.92);
+      backdrop-filter: blur(10px);
+
+      border-bottom: 1px solid rgba(58,90,114,.1);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 1rem 1.5rem;
+    }
+
+    .logo {
+      font-family: "Lora", serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .logo span {
+      color: var(--moss);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--moss);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+      radial-gradient(
+        ellipse at top right,
+        rgba(58,90,114,.1),
+        transparent 45%
+      ),
+      radial-gradient(
+        ellipse at bottom left,
+        rgba(184,212,226,.28),
+        transparent 55%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .8rem;
+      color: var(--moss);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: "Lora", serif;
+      font-size: clamp(3rem,7vw,6rem);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em {
+      color: var(--moss);
+      font-style: italic;
+    }
+
+    .hero-text {
+      max-width: 620px;
+      font-size: 1.1rem;
+      color: var(--bark);
+      margin-bottom: 2rem;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 52px;
+
+      padding: 0 2rem;
+
+      border-radius: 999px;
+
+      font-size: .9rem;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: .08em;
+
+      transition: all var(--transition);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--moss);
+      color: white;
+      border: 2px solid var(--moss);
+    }
+
+    .btn-primary:hover {
+      background: var(--soil);
+      border-color: var(--soil);
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--bark);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bark);
+      color: white;
+    }
+
+    /* =========================
+       TRUST
+    ========================== */
+
+    .trust {
+      background: var(--bark);
+      color: var(--sky);
+
+      border-radius: var(--radius);
+
+      margin: 0 1.5rem;
+      padding: 4rem 2rem;
+    }
+
+    .trust-grid {
+      max-width: var(--max-width);
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 3rem;
+    }
+
+    .trust h2 {
+      font-family: "Lora", serif;
+      font-size: clamp(2rem,4vw,2.8rem);
+      line-height: 1.2;
+    }
+
+    .trust h2 em {
+      color: white;
+      font-style: italic;
+    }
+
+    /* =========================
+       CARDS
+    ========================== */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--cream);
+
+      border-radius: var(--radius);
+
+      padding: 2rem;
+
+      border: 1px solid rgba(58,90,114,.12);
+
+      transition:
+      transform var(--transition),
+      box-shadow var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-number {
+      font-family: "Playfair Display", serif;
+      font-size: 3rem;
+      color: rgba(58,90,114,.15);
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-family: "Lora", serif;
+      margin-bottom: .75rem;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: var(--bark);
+      margin-bottom: 1.5rem;
+    }
+
+    .card ul {
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      color: var(--bark);
+      line-height: 1.8;
+    }
+
+    .price {
+      padding-top: 1rem;
+      border-top: 1px solid rgba(58,90,114,.15);
+
+      font-weight: 700;
+      color: var(--amber);
+    }
+
+    /* =========================
+       FAQ
+    ========================== */
+
+    .faq-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(58,90,114,.1);
+    }
+
+    .faq-item h3 {
+      margin-bottom: .5rem;
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-sub {
+      color: var(--bark);
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 1rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 1rem 1.2rem;
+
+      border-radius: 16px;
+
+      border: 1px solid rgba(58,90,114,.15);
+
+      background: white;
+
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--moss);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: var(--bark);
+      color: rgba(255,255,255,.75);
+
+      text-align: center;
+
+      padding: 2rem 1.5rem;
+      margin-top: 5rem;
+    }
+
+    footer span {
+      color: var(--sage);
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 768px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      section {
+        padding: 5rem 1.25rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       NAV
+  ========================== -->
+
+  <header class="navbar">
+
+    <div class="nav-inner">
+
+      <a href="#" class="logo">
+        The <span>Patch Web</span> Co.
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#care-plans">Care Plans</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
+      </nav>
 
-        <div class="price">
-          $500 – $900 One-Time
-        </div>
+    </div>
+
+  </header>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero">
+
+    <div class="container hero-content">
+
+      <p class="eyebrow">
+        Ohio • Local • Affordable
+      </p>
+
+      <h1>
+        Websites built for
+        <em>real local businesses.</em>
+      </h1>
+
+      <p class="hero-text">
+        The Patch Web Co. builds modern websites for local businesses across Ohio —
+        designed for both mobile and desktop, optimized for performance,
+        and tailored around how your customers actually use your business online.
+      </p>
+
+      <div class="button-group">
+
+        <a href="#contact" class="btn btn-primary">
+          Free Quote
+        </a>
+
+        <a href="#services" class="btn btn-secondary">
+          See Pricing
+        </a>
 
       </div>
 
-      <!-- BUSINESS -->
+    </div>
 
-      <div class="card">
+  </section>
 
-        <div class="card-number">02</div>
+  <!-- =========================
+       TRUST
+  ========================== -->
 
-        <h3>Business Website</h3>
+  <section class="trust">
 
-        <p>
-          A more advanced custom website for businesses ready to grow,
-          attract more customers, and stand out professionally online.
-        </p>
+    <div class="trust-grid">
 
-        <ul
-          style="
-          margin-bottom:1.5rem;
-          padding-left:1rem;
-          color:var(--bark);
-          line-height:1.8;
-          "
-        >
-          <li>• Fully custom design</li>
-          <li>• Expanded service pages</li>
-          <li>• Photo galleries & portfolios</li>
-          <li>• Advanced contact & quote forms</li>
-          <li>• SEO optimization setup</li>
-          <li>• Faster performance optimization</li>
-          <li>• Optional booking or scheduling tools</li>
-        </ul>
-
-        <div class="price">
-          $1,200 – $2,500 One-Time
-        </div>
-
+      <div>
+        <h2>
+          We build websites the way
+          <em>neighbors help neighbors.</em>
+        </h2>
       </div>
 
-      <!-- OWNERSHIP -->
-
-      <div class="card">
-
-        <div class="card-number">03</div>
-
-        <h3>Full Ownership Build</h3>
-
+      <div>
         <p>
-          Want complete control of your website and files?
-          We can transfer everything directly to you after launch.
+          No giant agency contracts. No disappearing support.
+          Just clean websites, honest pricing, and real communication from a local business
+          that plans to grow alongside the communities we serve across Ohio.
         </p>
+      </div>
 
-        <ul
-          style="
-          margin-bottom:1.5rem;
-          padding-left:1rem;
-          color:var(--bark);
-          line-height:1.8;
-          "
-        >
-          <li>• Full website source files</li>
-          <li>• Hosting transfer assistance</li>
-          <li>• Editable content systems available</li>
-          <li>• Basic walkthrough included</li>
-          <li>• No lock-in contracts</li>
-          <li>• Your business keeps full ownership</li>
-        </ul>
+    </div>
 
-        <div class="price">
-          Project Cost + $250–$500 Transfer
+  </section>
+
+  <!-- =========================
+       SERVICES
+  ========================== -->
+
+  <section id="services">
+
+    <div class="container">
+
+      <p class="section-label">
+        Services
+      </p>
+
+      <h2 class="section-title accent">
+        Clear pricing.<br>
+        Built around your business.
+      </h2>
+
+      <p
+        style="
+        max-width:700px;
+        margin-bottom:3rem;
+        color:var(--bark);
+        font-size:1.05rem;
+        "
+      >
+        Every website we build is designed for both mobile phones and desktop computers,
+        with layouts tailored to your business style and customer needs.
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+
+          <div class="card-number">01</div>
+
+          <h3>Starter Website</h3>
+
+          <p>
+            A professional online presence built for businesses that need something clean,
+            reliable, and easy for customers to use.
+          </p>
+
+          <ul>
+            <li>• Mobile + desktop responsive design</li>
+            <li>• 3–5 custom pages</li>
+            <li>• Contact form integration</li>
+            <li>• Basic SEO setup</li>
+            <li>• Domain connection help</li>
+            <li>• Business branding integration</li>
+          </ul>
+
+          <div class="price">
+            $500 – $900 One-Time
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-number">02</div>
+
+          <h3>Business Website</h3>
+
+          <p>
+            Built for growing businesses that want stronger branding,
+            more content, and a more custom customer experience.
+          </p>
+
+          <ul>
+            <li>• Fully custom design</li>
+            <li>• Expanded service pages</li>
+            <li>• Photo galleries & portfolios</li>
+            <li>• Quote request forms</li>
+            <li>• SEO optimization setup</li>
+            <li>• Performance optimization</li>
+            <li>• Optional scheduling tools</li>
+          </ul>
+
+          <div class="price">
+            $1,200 – $2,500 One-Time
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-number">03</div>
+
+          <h3>Full Ownership Build</h3>
+
+          <p>
+            Complete ownership of your website and files with no long-term lock-ins.
+          </p>
+
+          <ul>
+            <li>• Full website source files</li>
+            <li>• Hosting transfer assistance</li>
+            <li>• Editable systems available</li>
+            <li>• Basic walkthrough included</li>
+            <li>• Full ownership rights</li>
+            <li>• No contracts required</li>
+          </ul>
+
+          <div class="price">
+            Project Cost + $250–$500 Transfer
+          </div>
+
         </div>
 
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- =========================
+       CARE PLANS
+  ========================== -->
 
-<!-- =========================
-     CARE PLANS
-========================== -->
+  <section id="care-plans">
 
-<section id="care-plans">
+    <div class="container">
 
-  <div class="container">
+      <p class="section-label">
+        Ongoing Support
+      </p>
 
-    <p class="section-label">
-      Ongoing Support
-    </p>
+      <h2 class="section-title">
+        Care plans that keep your website running smoothly.
+      </h2>
 
-    <h2 class="section-title">
-      Care plans built to keep your site running smoothly.
-    </h2>
+      <p
+        style="
+        max-width:700px;
+        margin-bottom:3rem;
+        color:var(--bark);
+        "
+      >
+        Whether you want occasional help or full website management,
+        our care plans are designed to fit how involved you want to be.
+      </p>
 
-    <p
-      style="
-      max-width:700px;
-      margin-bottom:3rem;
-      color:var(--bark);
-      "
-    >
-      Some businesses want full control.
-      Others would rather never touch the website after launch.
-      Our care plans are designed for both.
-    </p>
+      <div class="cards">
 
-    <div class="cards">
+        <div class="card">
 
-      <!-- BASIC -->
+          <div class="card-number">01</div>
 
-      <div class="card">
+          <h3>Basic Care</h3>
 
-        <div class="card-number">01</div>
+          <p>
+            Reliable hosting and maintenance for businesses that need peace of mind.
+          </p>
 
-        <h3>Basic Care</h3>
+          <ul>
+            <li>• Secure hosting</li>
+            <li>• Website backups</li>
+            <li>• Monthly updates</li>
+            <li>• Security monitoring</li>
+            <li>• Small content edits</li>
+          </ul>
 
-        <p>
-          Essential hosting and maintenance for businesses that need reliable uptime
-          and occasional support.
-        </p>
+          <div class="price">
+            $49 / Month
+          </div>
 
-        <ul
-          style="
-          margin-bottom:1.5rem;
-          padding-left:1rem;
-          color:var(--bark);
-          line-height:1.8;
-          "
-        >
-          <li>• Secure website hosting</li>
-          <li>• Monthly software updates</li>
-          <li>• Basic security monitoring</li>
-          <li>• Backup protection</li>
-          <li>• Small text/photo edits</li>
-        </ul>
-
-        <div class="price">
-          $49 / Month
         </div>
 
-      </div>
+        <div class="card">
 
-      <!-- STANDARD -->
+          <div class="card-number">02</div>
 
-      <div class="card">
+          <h3>Growth Care</h3>
 
-        <div class="card-number">02</div>
+          <p>
+            Ongoing support for businesses that regularly update content and services.
+          </p>
 
-        <h3>Growth Care</h3>
+          <ul>
+            <li>• Everything in Basic Care</li>
+            <li>• Priority support</li>
+            <li>• Monthly content updates</li>
+            <li>• SEO performance checks</li>
+            <li>• Additional page creation</li>
+          </ul>
 
-        <p>
-          Ongoing support for businesses that regularly update services,
-          photos, or content throughout the year.
-        </p>
+          <div class="price">
+            $99 / Month
+          </div>
 
-        <ul
-          style="
-          margin-bottom:1.5rem;
-          padding-left:1rem;
-          color:var(--bark);
-          line-height:1.8;
-          "
-        >
-          <li>• Everything in Basic Care</li>
-          <li>• Priority support</li>
-          <li>• Monthly content updates</li>
-          <li>• SEO performance checks</li>
-          <li>• New page additions</li>
-          <li>• Faster edit turnaround</li>
-        </ul>
-
-        <div class="price">
-          $99 / Month
         </div>
 
-      </div>
+        <div class="card">
 
-      <!-- PREMIUM -->
+          <div class="card-number">03</div>
 
-      <div class="card">
+          <h3>Full Service Care</h3>
 
-        <div class="card-number">03</div>
+          <p>
+            Complete website management for businesses that want a hands-off experience.
+          </p>
 
-        <h3>Full Service Care</h3>
+          <ul>
+            <li>• Everything in Growth Care</li>
+            <li>• Unlimited small edits</li>
+            <li>• Landing page creation</li>
+            <li>• Performance optimization</li>
+            <li>• Ongoing design improvements</li>
+          </ul>
 
-        <p>
-          Complete website management for businesses that want a fully hands-off experience.
-        </p>
+          <div class="price">
+            $149 / Month
+          </div>
 
-        <ul
-          style="
-          margin-bottom:1.5rem;
-          padding-left:1rem;
-          color:var(--bark);
-          line-height:1.8;
-          "
-        >
-          <li>• Everything in Growth Care</li>
-          <li>• Unlimited small edits</li>
-          <li>• Landing page creation</li>
-          <li>• Performance optimization</li>
-          <li>• Business consultation support</li>
-          <li>• Ongoing design improvements</li>
-        </ul>
-
-        <div class="price">
-          $149 / Month
         </div>
 
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- =========================
+       FAQ
+  ========================== -->
 
-<!-- =========================
-     HERO TEXT UPDATE
-========================== -->
+  <section id="faq">
 
-<p class="hero-text">
-  The Patch Web Co. builds modern websites for local businesses across Ohio —
-  designed for both mobile and desktop, optimized for performance,
-  and tailored around how your customers actually use your business online.
-</p>
+    <div class="container">
 
-<!-- =========================
-     TRUST SECTION UPDATE
-========================== -->
+      <p class="section-label">
+        FAQ
+      </p>
 
-<p>
-  No giant agency contracts. No disappearing support.
-  Just clean websites, honest pricing, and real communication from a local business
-  that plans to grow alongside the communities we serve across Ohio.
-</p>
+      <h2 class="section-title">
+        Questions people usually ask.
+      </h2>
+
+      <div class="faq-grid">
+
+        <div class="faq-item">
+          <h3>How long does a website take?</h3>
+          <p>
+            Most projects launch within 1–3 weeks depending on the size and content.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do you build for phones and computers?</h3>
+          <p>
+            Yes. Every website is designed to work smoothly on mobile devices and desktops.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I update the website myself?</h3>
+          <p>
+            Absolutely. We can build editable systems or manage everything for you.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       CONTACT
+  ========================== -->
+
+  <section id="contact">
+
+    <div class="contact">
+
+      <p class="section-label">
+        Contact
+      </p>
+
+      <h2 class="section-title accent">
+        Let's build something solid.
+      </h2>
+
+      <p class="contact-sub">
+        Fill out the form below and we'll reach out within one business day.
+      </p>
+
+      <form
+        action="https://formspree.io/f/your-form-id"
+        method="POST"
+      >
+
+        <div class="form-row">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+
+          <input
+            type="text"
+            name="business"
+            placeholder="Business Name"
+          />
+
+        </div>
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          required
+        />
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+        />
+
+        <select name="service">
+
+          <option value="">
+            What are you interested in?
+          </option>
+
+          <option>
+            Starter Website
+          </option>
+
+          <option>
+            Business Website
+          </option>
+
+          <option>
+            Monthly Care Plan
+          </option>
+
+        </select>
+
+        <textarea
+          name="message"
+          placeholder="Tell us about your business..."
+        ></textarea>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <p>
+      © 2026
+      <span>The Patch Web Co.</span>
+      • Built locally in Ohio
+    </p>
+
+  </footer>
+
+</body>
+</html>

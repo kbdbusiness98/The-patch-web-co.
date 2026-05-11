@@ -1,651 +1,591 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Patch Web Co. — Local Websites for Local Businesses</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>The Patch Web Co. | Local Websites for Local Businesses</title>
+
+  <meta
+    name="description"
+    content="Affordable, modern websites for local businesses. The Patch Web Co. builds clean, mobile-friendly websites without agency pricing or confusing tech."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-```
-:root {
-  --soil:      #1c2730;
-  --bark:      #3a4e5a;
-  --moss:      #3a5a72;
-  --sage:      #7aaabb;
-  --straw:     #c8dce8;
-  --cream:     #e8f0f5;
-  --parchment: #f4f6f8;
-  --amber:     #c47b2b;
-  --sky:       #b8d4e2;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Nunito', sans-serif;
-  background-color: var(--parchment);
-  color: var(--soil);
-  overflow-x: hidden;
-}
-
-/* ── TEXTURE OVERLAY ── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0.6;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 3rem;
-  background: rgba(244, 246, 248, 0.94);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(58, 90, 114, 0.12);
-  border-radius: 0 0 20px 20px;
-}
-
-.nav-logo {
-  font-family: 'Lora', serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--soil);
-  letter-spacing: 0.02em;
-}
-
-.nav-logo span { color: var(--moss); }
-
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--bark);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--moss); }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 8rem 3rem 4rem;
-  position: relative;
-  overflow: hidden;
-  background-color: var(--parchment);
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(58,90,114,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(184,212,226,0.25) 0%, transparent 60%);
-}
-
-.hero-tag {
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--moss);
-  font-weight: 500;
-  margin-bottom: 1.2rem;
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards 0.2s;
-}
-
-.hero h1 {
-  font-family: 'Lora', serif;
-  font-size: clamp(3rem, 7vw, 6rem);
-  line-height: 1.05;
-  color: var(--soil);
-  max-width: 800px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.4s;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--moss);
-}
-
-.hero-sub {
-  max-width: 520px;
-  margin-top: 1.8rem;
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--bark);
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.6s;
-}
-
-.hero-cta {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2.5rem;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.8s;
-}
-
-.btn-primary {
-  display: inline-block;
-  padding: 0.85rem 2rem;
-  background: var(--moss);
-  color: var(--cream);
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 2px solid var(--moss);
-  border-radius: 50px;
-  transition: background 0.25s, color 0.25s, border-color 0.25s;
-}
-
-.btn-primary:hover {
-  background: var(--soil);
-  border-color: var(--soil);
-}
-
-.btn-outline {
-  display: inline-block;
-  padding: 0.85rem 2rem;
-  background: transparent;
-  color: var(--soil);
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 2px solid var(--bark);
-  border-radius: 50px;
-  transition: background 0.25s, color 0.25s;
-}
-
-.btn-outline:hover {
-  background: var(--bark);
-  color: var(--cream);
-}
-
-.hero-badge {
-  position: absolute;
-  right: 6%;
-  bottom: 12%;
-  width: 140px;
-  height: 140px;
-  opacity: 0;
-  animation: fadeIn 1s ease forwards 1.2s, slowSpin 20s linear infinite;
-}
-
-/* ── ABOUT STRIP ── */
-.about-strip {
-  background: var(--bark);
-  color: var(--straw);
-  padding: 3rem;
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-  flex-wrap: wrap;
-  border-radius: 24px;
-  margin: 0 2rem 2rem;
-}
-
-.about-strip h2 {
-  font-family: 'Lora', serif;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  line-height: 1.2;
-  flex: 1;
-  min-width: 260px;
-}
-
-.about-strip h2 em { color: var(--sky); font-style: italic; }
-
-.about-strip p {
-  flex: 2;
-  min-width: 260px;
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.8;
-  color: rgba(184, 212, 226, 0.85);
-}
-
-/* ── SERVICES ── */
-.services {
-  padding: 6rem 3rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--moss);
-  font-weight: 500;
-  margin-bottom: 0.6rem;
-}
-
-.section-title {
-  font-family: 'Lora', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--soil);
-  margin-bottom: 3rem;
-  line-height: 1.15;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: var(--cream);
-  border: 1px solid rgba(58,90,114,0.15);
-  padding: 2.2rem;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--moss);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.3s ease;
-}
-
-.card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(28,39,48,0.1); }
-.card:hover::before { transform: scaleY(1); }
-
-.card-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  color: rgba(58,90,114,0.15);
-  line-height: 1;
-  margin-bottom: 0.8rem;
-}
-
-.card h3 {
-  font-family: 'Lora', serif;
-  font-size: 1.3rem;
-  color: var(--soil);
-  margin-bottom: 0.6rem;
-}
-
-.card p {
-  font-size: 0.92rem;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--bark);
-  margin-bottom: 1.2rem;
-}
-
-.card-price {
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: var(--amber);
-  border-top: 1px solid rgba(58,90,114,0.15);
-  padding-top: 1rem;
-}
-
-/* ── HOW IT WORKS ── */
-.how {
-  background: var(--cream);
-  padding: 6rem 3rem;
-  border-radius: 24px;
-  margin: 0 2rem 2rem;
-}
-
-.how-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.step {
-  position: relative;
-  padding-top: 1rem;
-}
-
-.step-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 4rem;
-  font-weight: 700;
-  color: rgba(58,90,114,0.2);
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-
-.step h4 {
-  font-family: 'Lora', serif;
-  font-size: 1.1rem;
-  color: var(--soil);
-  margin-bottom: 0.5rem;
-}
-
-.step p {
-  font-size: 0.9rem;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--bark);
-}
-
-/* ── CONTACT ── */
-.contact {
-  padding: 6rem 3rem;
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.contact .section-title { margin-bottom: 0.8rem; }
-
-.contact-sub {
-  font-size: 1rem;
-  font-weight: 300;
-  color: var(--bark);
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-align: left;
-}
-
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.9rem 1.2rem;
-  background: var(--parchment);
-  border: 1px solid rgba(58,90,114,0.25);
-  border-radius: 50px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.95rem;
-  color: var(--soil);
-  outline: none;
-  transition: border-color 0.2s;
-  -webkit-appearance: none;
-}
-
-.contact-form textarea {
-  border-radius: 20px;
-  resize: vertical;
-  min-height: 120px;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  border-color: var(--moss);
-}
-
-.contact-form button {
-  align-self: center;
-  padding: 0.9rem 2.5rem;
-  background: var(--moss);
-  color: var(--parchment);
-  border: none;
-  border-radius: 50px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.25s;
-}
-
-.contact-form button:hover { background: var(--soil); }
-
-/* ── FOOTER ── */
-footer {
-  background: var(--bark);
-  color: rgba(184,212,226,0.7);
-  text-align: center;
-  padding: 2rem 3rem;
-  font-size: 0.82rem;
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  border-radius: 24px 24px 0 0;
-}
-
-footer span { color: var(--sage); }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes slowSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-  nav { padding: 1rem 1.5rem; border-radius: 0 0 14px 14px; }
-  .nav-links { display: none; }
-  .hero { padding: 7rem 1.5rem 3rem; }
-  .about-strip { padding: 2.5rem 1.5rem; gap: 1.5rem; margin: 0 1rem 1.5rem; }
-  .how { margin: 0 1rem 1.5rem; padding: 4rem 1.5rem; }
-  .services { padding-left: 1.5rem; padding-right: 1.5rem; }
-  .contact { padding-left: 1.5rem; padding-right: 1.5rem; }
-  .form-row { grid-template-columns: 1fr; }
-  .hero-badge { display: none; }
-}
-```
-
-  </style>
-</head>
-<body>
-
-  <!-- NAV -->
-
-  <nav>
-    <div class="nav-logo">The <span>Patch Web</span> Co.</div>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#how">How It Works</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <p class="hero-tag">Local Websites for Local Businesses</p>
-    <h1>Your business needs a <em>proper</em> website.</h1>
-    <p class="hero-sub">The Patch Web Co. builds clean, affordable websites for small businesses in your community — no big agency fees, no confusing tech. Just a site that works.</p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn-primary">Get a Free Quote</a>
-      <a href="#services" class="btn-outline">See Pricing</a>
-    </div>
-
-```
-<!-- Spinning badge -->
-<svg class="hero-badge" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <path id="circle" d="M 70,70 m -50,0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0"/>
-  </defs>
-  <circle cx="70" cy="70" r="58" fill="none" stroke="rgba(58,90,114,0.15)" stroke-width="1"/>
-  <circle cx="70" cy="70" r="44" fill="none" stroke="rgba(58,90,114,0.1)" stroke-width="1"/>
-  <text font-family="Nunito, sans-serif" font-size="11.5" fill="#3a5a72" letter-spacing="3">
-    <textPath href="#circle">THE PATCH WEB CO. · WEBSITES · LOCAL · </textPath>
-  </text>
-  <text font-family="Lora, serif" font-size="22" font-style="italic" fill="#3a5a72" text-anchor="middle" x="70" y="76">local</text>
-</svg>
-```
-
-  </section>
-
-  <!-- ABOUT STRIP -->
-
-  <div class="about-strip">
-    <h2>We build websites the way<br/><em>neighbors help neighbors.</em></h2>
-    <p>Big agencies charge thousands and hand you off to someone you'll never meet again. We're different — we respond within one business day, we never lock you into a contract, and we stay with you after launch. Whether you need a simple presence online or a site that brings in real business, we've got you.</p>
-  </div>
-
-  <!-- SERVICES -->
-
-  <section class="services" id="services">
-    <p class="section-label">What We Offer</p>
-    <h2 class="section-title" style="color: #7aaabb;">Honest pricing.<br/>No surprises.</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="card-num">01</div>
-        <h3>Launch Package</h3>
-        <p>A clean, mobile-friendly website with 3–5 pages: Home, About, Services, Contact, and an optional Gallery. Includes basic SEO setup and help connecting your domain.</p>
-        <div class="card-price">$200 – $600 · One-Time</div>
-      </div>
-      <div class="card">
-        <div class="card-num">02</div>
-        <h3>Care Plan</h3>
-        <p>We host your site and handle updates, fixes, and changes on an ongoing basis. Submit a request by email — we take care of the rest. No tech skills required.</p>
-        <div class="card-price">$30 – $75 / Month</div>
-      </div>
-      <div class="card">
-        <div class="card-num">03</div>
-        <h3>Full Ownership</h3>
-        <p>Want to own everything outright? We'll build your site and transfer the full codebase to you — with a plain-English guide so you know exactly what you have.</p>
-        <div class="card-price">Build + $150–$300 Transfer Fee</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-
-  <section class="how" id="how">
-    <div class="how-inner">
-      <p class="section-label">The Process</p>
-      <h2 class="section-title">Simple from start to launch.</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h4>We Talk</h4>
-          <p>Tell us about your business, your customers, and what you need. Free consultation, no pressure.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h4>We Build</h4>
-          <p>We design and build your site using your content, colors, and voice. You review and we refine.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h4>We Launch</h4>
-          <p>Your site goes live on your domain. We handle all the technical setup so you don't have to.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <h4>We Stay</h4>
-          <p>With a Care Plan, we're always a quick email away. Updates, fixes, changes — we've got it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-
-  <section class="contact" id="contact">
-    <p class="section-label">Get In Touch</p>
-    <h2 class="section-title" style="color: #7aaabb;">Let's talk about your business.</h2>
-    <p class="contact-sub" style="color: #7aaabb;">Fill out the form below and we'll get back to you within one business day. No tech jargon, no sales pitch — just a straight conversation about what you need.</p>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="form-row">
-        <input type="text" placeholder="Your Name" required />
-        <input type="text" placeholder="Business Name" />
-      </div>
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number (optional)" />
-      <select>
-        <option value="" disabled selected>What are you interested in?</option>
-        <option>Launch Package ($200–$600)</option>
-        <option>Launch + Care Plan</option>
-        <option>Full Ownership Transfer</option>
-        <option>Not sure yet — just exploring</option>
-      </select>
-      <textarea placeholder="Tell us a little about your business and what you're looking for..."></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-    <p>© 2026 <span>The Patch Web Co.</span> · Websites for the community, by the community</p>
-  </footer>
-
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button');
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = '#1c2730';
-      btn.disabled = true;
+    :root {
+      --soil: #1c2730;
+      --bark: #3a4e5a;
+      --moss: #3a5a72;
+      --sage: #7aaabb;
+      --cream: #e8f0f5;
+      --parchment: #f4f6f8;
+      --amber: #c47b2b;
+      --sky: #b8d4e2;
+
+      --radius: 20px;
+      --transition: 0.25s ease;
+      --shadow: 0 12px 32px rgba(28, 39, 48, 0.08);
+      --max-width: 1140px;
     }
 
-    // Scroll-reveal for cards and steps
-    document.querySelectorAll('.card, .step').forEach((el, i) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(18px)';
-      el.style.transition = `opacity 0.55s ease ${i * 100}ms, transform 0.55s ease ${i * 100}ms`;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.style.opacity = '1';
-            e.target.style.transform = 'translateY(0)';
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.15 });
+    html {
+      scroll-behavior: smooth;
+    }
 
-      io.observe(el);
+    body {
+      font-family: "Nunito", sans-serif;
+      background: var(--parchment);
+      color: var(--soil);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    section {
+      padding: 6rem 1.5rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* ======================
+       NAVIGATION
+    ====================== */
+
+    .navbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+
+      background: rgba(244, 246, 248, 0.92);
+      backdrop-filter: blur(10px);
+
+      border-bottom: 1px solid rgba(58, 90, 114, 0.12);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 1rem 1.5rem;
+    }
+
+    .logo {
+      font-family: "Lora", serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .logo span {
+      color: var(--moss);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--bark);
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--moss);
+    }
+
+    /* ======================
+       HERO
+    ====================== */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          ellipse at top right,
+          rgba(58, 90, 114, 0.1),
+          transparent 50%
+        ),
+        radial-gradient(
+          ellipse at bottom left,
+          rgba(184, 212, 226, 0.25),
+          transparent 55%
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      color: var(--moss);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: "Lora", serif;
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--moss);
+    }
+
+    .hero-text {
+      max-width: 560px;
+      font-size: 1.1rem;
+      color: var(--bark);
+      margin-bottom: 2rem;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 50px;
+
+      padding: 0 2rem;
+
+      border-radius: 999px;
+
+      font-size: 0.88rem;
+      font-weight: 700;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--moss);
+      color: white;
+      border: 2px solid var(--moss);
+    }
+
+    .btn-primary:hover {
+      background: var(--soil);
+      border-color: var(--soil);
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--bark);
+      color: var(--soil);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bark);
+      color: white;
+    }
+
+    /* ======================
+       SECTIONS
+    ====================== */
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      color: var(--moss);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-family: "Lora", serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 3rem;
+    }
+
+    .section-title.accent {
+      color: var(--sage);
+    }
+
+    /* ======================
+       ABOUT
+    ====================== */
+
+    .about {
+      background: var(--bark);
+      color: var(--sky);
+      border-radius: var(--radius);
+
+      margin: 0 1.5rem;
+
+      padding: 4rem 2rem;
+    }
+
+    .about-grid {
+      max-width: var(--max-width);
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+    }
+
+    .about h2 {
+      font-family: "Lora", serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.2;
+    }
+
+    .about h2 em {
+      color: white;
+      font-style: italic;
+    }
+
+    .about p {
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    /* ======================
+       CARDS
+    ====================== */
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 2rem;
+
+      border: 1px solid rgba(58, 90, 114, 0.12);
+
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-number {
+      font-family: "Playfair Display", serif;
+      font-size: 3rem;
+      color: rgba(58, 90, 114, 0.18);
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-family: "Lora", serif;
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: var(--bark);
+      margin-bottom: 1.5rem;
+    }
+
+    .price {
+      border-top: 1px solid rgba(58, 90, 114, 0.15);
+      padding-top: 1rem;
+
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--amber);
+    }
+
+    /* ======================
+       CONTACT FORM
+    ====================== */
+
+    .contact {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .contact-sub {
+      margin-bottom: 2rem;
+      color: var(--bark);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+
+      padding: 1rem 1.2rem;
+
+      border-radius: 16px;
+
+      border: 1px solid rgba(58, 90, 114, 0.2);
+
+      background: white;
+
+      font: inherit;
+
+      transition: border-color var(--transition);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--moss);
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* ======================
+       FOOTER
+    ====================== */
+
+    footer {
+      background: var(--bark);
+      color: rgba(255,255,255,0.7);
+
+      text-align: center;
+
+      padding: 2rem 1.5rem;
+      margin-top: 4rem;
+    }
+
+    footer span {
+      color: var(--sage);
+    }
+
+    /* ======================
+       ACCESSIBILITY
+    ====================== */
+
+    :focus-visible {
+      outline: 3px solid var(--sage);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ======================
+       MOBILE
+    ====================== */
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 5rem 1.25rem;
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-links {
+        display: none;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+
+      <a href="#" class="logo" aria-label="The Patch Web Co Home">
+        The <span>Patch Web</span> Co.
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-content">
+
+        <p class="eyebrow">
+          Local Websites for Local Businesses
+        </p>
+
+        <h1>
+          Your business deserves a
+          <em>proper</em> website.
+        </h1>
+
+        <p class="hero-text">
+          The Patch Web Co. builds modern, affordable websites for small businesses without agency pricing or confusing tech.
+        </p>
+
+        <div class="button-group">
+          <a href="#contact" class="btn btn-primary">
+            Get a Free Quote
+          </a>
+
+          <a href="#services" class="btn btn-secondary">
+            View Services
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll(".card").forEach((card) => {
+      observer.observe(card);
+    });
+
+    const form = document.querySelector("form");
+
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const button = form.querySelector("button");
+
+      button.textContent = "Message Sent ✓";
+      button.disabled = true;
     });
   </script>
 

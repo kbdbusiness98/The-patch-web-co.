@@ -2,1666 +2,499 @@
 
 <html lang="en">
 <head>
-
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>The Patch Web Co. | Websites for Local Businesses Across Ohio</title>
-
-<meta
-name="description"
-content="Modern websites for local businesses across Ohio. Mobile-friendly, fast, clean, and built around your business."
-/>
-
+<meta name="description" content="Modern websites for local businesses across Ohio. Mobile-friendly, fast, clean, and built around your business." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link
-href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Nunito:wght@300;400;600;700&display=swap"
-rel="stylesheet"
-/>
-
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
 <style>
-
-:root{
-  --soil:#1f2933;
-  --bark:#3e5361;
-  --moss:#49677a;
-  --sage:#7fa8ba;
-  --sky:#d8e5ec;
-  --cream:#edf3f6;
-  --paper:#f7f9fb;
-  --gold:#c78533;
-
-  --radius:26px;
-  --shadow:0 18px 45px rgba(28,39,48,.08);
-  --transition:.28s ease;
-  --max-width:1180px;
+:root {
+  --soil: #1f2933;
+  --bark: #3e5361;
+  --moss: #49677a;
+  --sage: #7fa8ba;
+  --sky: #d8e5ec;
+  --cream: #edf3f6;
+  --paper: #f7f9fb;
+  --gold: #c78533;
+  --radius: 26px;
+  --shadow: 0 18px 45px rgba(28,39,48,.08);
+  --transition: .28s ease;
+  --max-width: 1180px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: "Nunito", sans-serif; background: var(--paper); color: var(--soil); overflow-x: hidden; line-height: 1.7; }
+.container { width: min(100% - 2rem, var(--max-width)); margin: auto; }
+section { padding: 7rem 0; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+.section-label { text-transform: uppercase; letter-spacing: .18em; font-size: .72rem; font-weight: 700; color: var(--moss); margin-bottom: 1rem; }
+.section-title { font-family: "Lora", serif; font-size: clamp(2.3rem, 5vw, 4rem); line-height: 1.05; margin-bottom: 1.5rem; }
+.section-sub { max-width: 720px; color: var(--bark); font-size: 1.05rem; }
+.navbar { position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(12px); background: rgba(247,249,251,.88); border-bottom: 1px solid rgba(62,83,97,.08); }
+.nav-inner { width: min(100% - 2rem, var(--max-width)); margin: auto; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 0; }
+.logo { font-family: "Lora", serif; font-size: 1.35rem; font-weight: 600; }
+.logo span { color: var(--moss); }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { font-size: .84rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: var(--transition); }
+.nav-links a:hover { color: var(--moss); }
+.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(127,168,186,.18), transparent 32%), radial-gradient(circle at bottom left, rgba(73,103,122,.08), transparent 40%); }
+.hero-content { position: relative; z-index: 2; max-width: 760px; }
+.eyebrow { font-size: .78rem; text-transform: uppercase; letter-spacing: .18em; color: var(--moss); font-weight: 700; margin-bottom: 1.25rem; }
+.hero h1 { font-family: "Lora", serif; font-size: clamp(3.5rem, 8vw, 6.5rem); line-height: 1.02; margin-bottom: 1.5rem; }
+.hero h1 em { font-style: italic; color: var(--moss); }
+.hero-text { max-width: 620px; color: var(--bark); font-size: 1.12rem; margin-bottom: 2.5rem; }
+.button-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 2rem; border-radius: 999px; font-size: .88rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: var(--transition); cursor: pointer; font-family: inherit; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--moss); color: white; border: 2px solid var(--moss); }
+.btn-primary:hover { background: var(--soil); border-color: var(--soil); }
+.btn-secondary { border: 2px solid rgba(62,83,97,.18); background: transparent; color: var(--soil); }
+.btn-secondary:hover { background: var(--soil); color: white; border-color: var(--soil); }
+.trust { padding-top: 0; }
+.trust-box { background: linear-gradient(135deg, #324653, #445d6b); color: white; border-radius: var(--radius); padding: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; box-shadow: var(--shadow); }
+.trust-box h2 { font-family: "Lora", serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+.trust-box h2 em { color: var(--sky); font-style: italic; }
+.trust-box p { color: rgba(255,255,255,.82); font-size: 1.05rem; }
+.cards { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.6rem; }
+.card { background: var(--cream); border-radius: var(--radius); padding: 2.25rem; border: 1px solid rgba(62,83,97,.08); transition: var(--transition); }
+.card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.card-number { font-family: "Lora", serif; font-size: 3rem; color: rgba(73,103,122,.18); margin-bottom: 1rem; }
+.card h3 { font-family: "Lora", serif; font-size: 1.55rem; margin-bottom: .8rem; }
+.card p { color: var(--bark); margin-bottom: 1.5rem; }
+.card ul { list-style: none; padding-left: 0; margin-bottom: 1.5rem; }
+.card ul li { position: relative; padding-left: 1.5rem; margin-bottom: .65rem; color: var(--bark); }
+.card ul li::before { content: "•"; position: absolute; left: 0; color: var(--moss); font-weight: 700; }
+.price { padding-top: 1rem; border-top: 1px solid rgba(62,83,97,.12); color: var(--gold); font-weight: 800; }
+.price-link { display: inline-flex; align-items: center; gap: .4rem; margin-top: .75rem; font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--moss); cursor: pointer; background: none; border: none; font-family: inherit; padding: 0; transition: var(--transition); }
+.price-link:hover { color: var(--soil); }
+.price-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.process-grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+.process-card { background: white; border-radius: var(--radius); padding: 2rem; border: 1px solid rgba(62,83,97,.08); }
+.process-number { font-family: "Lora", serif; font-size: 3rem; color: rgba(73,103,122,.18); margin-bottom: .75rem; }
+.process-card h3 { margin-bottom: .7rem; font-family: "Lora", serif; }
+.faq-grid { margin-top: 3rem; display: grid; gap: 1rem; }
+.faq-item { background: white; border-radius: 20px; padding: 1.5rem 1.75rem; border: 1px solid rgba(62,83,97,.08); }
+.faq-item h3 { margin-bottom: .45rem; font-size: 1.08rem; }
+.contact-wrap { background: var(--cream); border-radius: var(--radius); padding: 4rem; border: 1px solid rgba(62,83,97,.08); }
+.contact-form { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+input, select, textarea { width: 100%; border: none; background: white; padding: 1rem 1.2rem; border-radius: 18px; font: inherit; }
+textarea { min-height: 160px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid rgba(73,103,122,.18); }
+.confirmation { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem 2rem; gap: 1rem; }
+.confirmation.visible { display: flex; }
+.confirmation-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--moss); display: flex; align-items: center; justify-content: center; margin-bottom: .5rem; }
+.confirmation-icon svg { width: 30px; height: 30px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.confirmation h3 { font-family: "Lora", serif; font-size: 1.8rem; color: var(--soil); }
+.confirmation p { color: var(--bark); max-width: 420px; font-size: 1.05rem; }
+.sheet-overlay { position: fixed; inset: 0; background: rgba(31,41,51,.55); backdrop-filter: blur(4px); z-index: 2000; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+.sheet-overlay.open { opacity: 1; pointer-events: all; }
+.pricing-sheet { position: fixed; bottom: 0; left: 0; right: 0; z-index: 2001; background: var(--paper); border-radius: 28px 28px 0 0; max-height: 92vh; overflow-y: auto; transform: translateY(100%); transition: transform .4s cubic-bezier(.32,.72,0,1); -webkit-overflow-scrolling: touch; }
+.pricing-sheet.open { transform: translateY(0); }
+.sheet-handle { display: flex; justify-content: center; padding: 1rem 0 .5rem; position: sticky; top: 0; background: var(--paper); z-index: 10; }
+.sheet-handle-bar { width: 40px; height: 4px; background: rgba(62,83,97,.2); border-radius: 999px; }
+.sheet-close { position: absolute; top: 1rem; right: 1.25rem; background: var(--cream); border: none; border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; color: var(--bark); transition: var(--transition); }
+.sheet-close:hover { background: var(--sky); color: var(--soil); }
+.sheet-inner { padding: 0 1.5rem 3rem; max-width: 860px; margin: auto; }
+.sheet-title { font-family: "Lora", serif; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; margin-bottom: .5rem; }
+.sheet-sub { color: var(--bark); margin-bottom: 2.5rem; }
+.sheet-section { margin-bottom: 2.5rem; }
+.sheet-section-label { text-transform: uppercase; letter-spacing: .15em; font-size: .68rem; font-weight: 700; color: var(--moss); margin-bottom: 1rem; }
+.sheet-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.sheet-card { background: white; border-radius: 20px; padding: 1.5rem; border: 1px solid rgba(62,83,97,.1); display: flex; flex-direction: column; gap: .4rem; }
+.sheet-card.featured { background: var(--moss); color: white; border-color: var(--moss); }
+.sheet-card-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; color: var(--moss); }
+.sheet-card.featured .sheet-card-label { color: rgba(255,255,255,.7); }
+.sheet-card-name { font-family: "Lora", serif; font-size: 1.2rem; }
+.sheet-card-price { font-size: 1.5rem; font-weight: 800; color: var(--gold); margin-top: .25rem; }
+.sheet-card.featured .sheet-card-price { color: #f7d48a; }
+.sheet-card-desc { font-size: .85rem; color: var(--bark); margin-top: .2rem; }
+.sheet-card.featured .sheet-card-desc { color: rgba(255,255,255,.8); }
+.plain-box { background: var(--cream); border-radius: 20px; padding: 1.75rem; border: 1px solid rgba(62,83,97,.08); }
+.plain-box h4 { font-family: "Lora", serif; font-size: 1.15rem; margin-bottom: .6rem; }
+.plain-box p { color: var(--bark); font-size: .95rem; margin-bottom: .5rem; }
+.plain-box p:last-child { margin-bottom: 0; }
+.plain-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: .5rem; margin-top: .75rem; }
+.plain-list li { display: flex; gap: .65rem; font-size: .93rem; color: var(--bark); }
+.plain-list li::before { content: "→"; color: var(--moss); font-weight: 700; flex-shrink: 0; }
+.sheet-cta { margin-top: 2rem; text-align: center; }
+.sheet-cta .btn { min-width: 220px; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.compare-table th { text-align: left; padding: .75rem 1rem; background: var(--moss); color: white; font-family: "Lora", serif; font-weight: 400; }
+.compare-table th:first-child { border-radius: 16px 0 0 0; }
+.compare-table th:last-child { border-radius: 0 16px 0 0; text-align: center; }
+.compare-table td { padding: .75rem 1rem; border-bottom: 1px solid rgba(62,83,97,.07); color: var(--bark); }
+.compare-table td:last-child { text-align: center; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:nth-child(even) td { background: var(--cream); }
+.check { color: var(--moss); font-size: 1.1rem; }
+.dash { color: rgba(62,83,97,.25); }
+footer { padding: 2.5rem 1rem; text-align: center; color: rgba(62,83,97,.72); }
+footer span { color: var(--moss); font-weight: 700; }
+@media (max-width: 820px) {
+  .nav-links { display: none; }
+  .hero { padding-top: 5rem; }
+  .trust-box { grid-template-columns: 1fr; padding: 2.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .button-group { flex-direction: column; }
+  .btn { width: 100%; }
+  section { padding: 5rem 0; }
+}
+@media (max-width: 600px) {
+  .sheet-inner { padding: 0 1rem 2.5rem; }
+  .compare-table { font-size: .8rem; }
+  .compare-table th, .compare-table td { padding: .6rem .65rem; }
 }
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:"Nunito",sans-serif;
-  background:var(--paper);
-  color:var(--soil);
-  overflow-x:hidden;
-  line-height:1.7;
-}
-
-/* =========================
-   GLOBAL
-========================= */
-
-.container{
-  width:min(100% - 2rem,var(--max-width));
-  margin:auto;
-}
-
-section{
-  padding:7rem 0;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.section-label{
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-size:.72rem;
-  font-weight:700;
-  color:var(--moss);
-  margin-bottom:1rem;
-}
-
-.section-title{
-  font-family:"Lora",serif;
-  font-size:clamp(2.3rem,5vw,4rem);
-  line-height:1.05;
-  margin-bottom:1.5rem;
-}
-
-.section-sub{
-  max-width:720px;
-  color:var(--bark);
-  font-size:1.05rem;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:1000;
-
-  backdrop-filter:blur(12px);
-
-  background:rgba(247,249,251,.88);
-
-  border-bottom:1px solid rgba(62,83,97,.08);
-}
-
-.nav-inner{
-  width:min(100% - 2rem,var(--max-width));
-  margin:auto;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:1.1rem 0;
-}
-
-.logo{
-  font-family:"Lora",serif;
-  font-size:1.35rem;
-  font-weight:600;
-}
-
-.logo span{
-  color:var(--moss);
-}
-
-.nav-links{
-  display:flex;
-  list-style:none;
-  gap:2rem;
-}
-
-.nav-links a{
-  font-size:.84rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  transition:var(--transition);
-}
-
-.nav-links a:hover{
-  color:var(--moss);
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  min-height:100vh;
-
-  display:flex;
-  align-items:center;
-
-  position:relative;
-  overflow:hidden;
-}
-
-.hero::before{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  background:
-  radial-gradient(
-    circle at top right,
-    rgba(127,168,186,.18),
-    transparent 32%
-  ),
-  radial-gradient(
-    circle at bottom left,
-    rgba(73,103,122,.08),
-    transparent 40%
-  );
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:760px;
-}
-
-.eyebrow{
-  font-size:.78rem;
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  color:var(--moss);
-  font-weight:700;
-  margin-bottom:1.25rem;
-}
-
-.hero h1{
-  font-family:"Lora",serif;
-  font-size:clamp(3.5rem,8vw,6.5rem);
-  line-height:1.02;
-  margin-bottom:1.5rem;
-}
-
-.hero h1 em{
-  font-style:italic;
-  color:var(--moss);
-}
-
-.hero-text{
-  max-width:620px;
-  color:var(--bark);
-  font-size:1.12rem;
-  margin-bottom:2.5rem;
-}
-
-.button-group{
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  min-height:54px;
-
-  padding:0 2rem;
-
-  border-radius:999px;
-
-  font-size:.88rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-
-  transition:var(--transition);
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-.btn-primary{
-  background:var(--moss);
-  color:white;
-  border:2px solid var(--moss);
-}
-
-.btn-primary:hover{
-  background:var(--soil);
-  border-color:var(--soil);
-}
-
-.btn-secondary{
-  border:2px solid rgba(62,83,97,.18);
-}
-
-.btn-secondary:hover{
-  background:var(--soil);
-  color:white;
-  border-color:var(--soil);
-}
-
-/* =========================
-   TRUST STRIP
-========================= */
-
-.trust{
-  padding-top:0;
-}
-
-.trust-box{
-  background:linear-gradient(
-    135deg,
-    #324653,
-    #445d6b
-  );
-
-  color:white;
-
-  border-radius:var(--radius);
-
-  padding:4rem;
-
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:3rem;
-
-  box-shadow:var(--shadow);
-}
-
-.trust-box h2{
-  font-family:"Lora",serif;
-  font-size:clamp(2rem,4vw,3rem);
-  line-height:1.1;
-}
-
-.trust-box h2 em{
-  color:var(--sky);
-  font-style:italic;
-}
-
-.trust-box p{
-  color:rgba(255,255,255,.82);
-  font-size:1.05rem;
-}
-
-/* =========================
-   CARDS
-========================= */
-
-.cards{
-  margin-top:3rem;
-
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:1.6rem;
-}
-
-.card{
-  background:var(--cream);
-
-  border-radius:var(--radius);
-
-  padding:2.25rem;
-
-  border:1px solid rgba(62,83,97,.08);
-
-  transition:var(--transition);
-}
-
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--shadow);
-}
-
-.card-number{
-  font-family:"Lora",serif;
-  font-size:3rem;
-  color:rgba(73,103,122,.18);
-  margin-bottom:1rem;
-}
-
-.card h3{
-  font-family:"Lora",serif;
-  font-size:1.55rem;
-  margin-bottom:.8rem;
-}
-
-.card p{
-  color:var(--bark);
-  margin-bottom:1.5rem;
-}
-
-.card ul{
-  list-style:none;
-  padding-left:0;
-  margin-bottom:1.5rem;
-}
-
-.card ul li{
-  position:relative;
-  padding-left:1.5rem;
-  margin-bottom:.65rem;
-  color:var(--bark);
-}
-
-.card ul li::before{
-  content:"•";
-  position:absolute;
-  left:0;
-  color:var(--moss);
-  font-weight:700;
-}
-
-.price{
-  padding-top:1rem;
-  border-top:1px solid rgba(62,83,97,.12);
-
-  color:var(--gold);
-  font-weight:800;
-}
-
-/* =========================
-   PROCESS
-========================= */
-
-.process-grid{
-  margin-top:3rem;
-
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:1.5rem;
-}
-
-.process-card{
-  background:white;
-  border-radius:var(--radius);
-  padding:2rem;
-  border:1px solid rgba(62,83,97,.08);
-}
-
-.process-number{
-  font-family:"Lora",serif;
-  font-size:3rem;
-  color:rgba(73,103,122,.18);
-  margin-bottom:.75rem;
-}
-
-.process-card h3{
-  margin-bottom:.7rem;
-  font-family:"Lora",serif;
-}
-
-/* =========================
-   FAQ
-========================= */
-
-.faq-grid{
-  margin-top:3rem;
-  display:grid;
-  gap:1rem;
-}
-
-.faq-item{
-  background:white;
-  border-radius:20px;
-  padding:1.5rem 1.75rem;
-  border:1px solid rgba(62,83,97,.08);
-}
-
-.faq-item h3{
-  margin-bottom:.45rem;
-  font-size:1.08rem;
-}
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-wrap{
-  background:var(--cream);
-
-  border-radius:var(--radius);
-
-  padding:4rem;
-
-  border:1px solid rgba(62,83,97,.08);
-}
-
-.contact-form{
-  margin-top:2rem;
-
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-}
-
-.form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1rem;
-}
-
-input,
-select,
-textarea{
-  width:100%;
-
-  border:none;
-
-  background:white;
-
-  padding:1rem 1.2rem;
-
-  border-radius:18px;
-
-  font:inherit;
-}
-
-textarea{
-  min-height:160px;
-  resize:vertical;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  outline:2px solid rgba(73,103,122,.18);
-}
-
-/* =========================
-   CONFIRMATION
-========================= */
-
-.confirmation{
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:3rem 2rem;
-  gap:1rem;
-}
-
-.confirmation.visible{
-  display:flex;
-}
-
-.confirmation-icon{
-  width:64px;
-  height:64px;
-  border-radius:50%;
-  background:var(--moss);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:.5rem;
-}
-
-.confirmation-icon svg{
-  width:30px;
-  height:30px;
-  stroke:white;
-  fill:none;
-  stroke-width:2.5;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-.confirmation h3{
-  font-family:"Lora",serif;
-  font-size:1.8rem;
-  color:var(--soil);
-}
-
-.confirmation p{
-  color:var(--bark);
-  max-width:420px;
-  font-size:1.05rem;
-}
-
-/* =========================
-   PRICING SHEET TRIGGER
-========================= */
-
-.price-link{
-  display:inline-flex;
-  align-items:center;
-  gap:.4rem;
-  margin-top:.75rem;
-  font-size:.82rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--moss);
-  cursor:pointer;
-  background:none;
-  border:none;
-  font-family:inherit;
-  padding:0;
-  transition:var(--transition);
-}
-
-.price-link:hover{
-  color:var(--soil);
-}
-
-.price-link svg{
-  width:14px;
-  height:14px;
-  stroke:currentColor;
-  fill:none;
-  stroke-width:2.5;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  transition:var(--transition);
-}
-
-.price-link:hover svg{
-  transform:translateY(2px);
-}
-
-/* =========================
-   BOTTOM SHEET OVERLAY
-========================= */
-
-.sheet-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(31,41,51,.55);
-  backdrop-filter:blur(4px);
-  z-index:2000;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .35s ease;
-}
-
-.sheet-overlay.open{
-  opacity:1;
-  pointer-events:all;
-}
-
-/* =========================
-   BOTTOM SHEET
-========================= */
-
-.pricing-sheet{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:2001;
-  background:var(--paper);
-  border-radius:28px 28px 0 0;
-  max-height:92vh;
-  overflow-y:auto;
-  transform:translateY(100%);
-  transition:transform .4s cubic-bezier(.32,.72,0,1);
-  -webkit-overflow-scrolling:touch;
-}
-
-.pricing-sheet.open{
-  transform:translateY(0);
-}
-
-.sheet-handle{
-  display:flex;
-  justify-content:center;
-  padding:1rem 0 .5rem;
-  position:sticky;
-  top:0;
-  background:var(--paper);
-  z-index:10;
-}
-
-.sheet-handle-bar{
-  width:40px;
-  height:4px;
-  background:rgba(62,83,97,.2);
-  border-radius:999px;
-}
-
-.sheet-close{
-  position:absolute;
-  top:1rem;
-  right:1.25rem;
-  background:var(--cream);
-  border:none;
-  border-radius:50%;
-  width:34px;
-  height:34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  font-size:1.1rem;
-  color:var(--bark);
-  transition:var(--transition);
-}
-
-.sheet-close:hover{
-  background:var(--sky);
-  color:var(--soil);
-}
-
-.sheet-inner{
-  padding:0 1.5rem 3rem;
-  max-width:860px;
-  margin:auto;
-}
-
-.sheet-title{
-  font-family:"Lora",serif;
-  font-size:clamp(1.8rem,4vw,2.8rem);
-  line-height:1.1;
-  margin-bottom:.5rem;
-}
-
-.sheet-sub{
-  color:var(--bark);
-  margin-bottom:2.5rem;
-}
-
-/* Sheet sections */
-.sheet-section{
-  margin-bottom:2.5rem;
-}
-
-.sheet-section-label{
-  text-transform:uppercase;
-  letter-spacing:.15em;
-  font-size:.68rem;
-  font-weight:700;
-  color:var(--moss);
-  margin-bottom:1rem;
-}
-
-/* Comparison table */
-.compare-table{
-  width:100%;
-  border-collapse:collapse;
-  font-size:.92rem;
-}
-
-.compare-table th{
-  text-align:left;
-  padding:.75rem 1rem;
-  background:var(--moss);
-  color:white;
-  font-family:"Lora",serif;
-  font-weight:400;
-}
-
-.compare-table th:first-child{
-  border-radius:16px 0 0 0;
-}
-
-.compare-table th:last-child{
-  border-radius:0 16px 0 0;
-  text-align:center;
-}
-
-.compare-table td{
-  padding:.75rem 1rem;
-  border-bottom:1px solid rgba(62,83,97,.07);
-  color:var(--bark);
-}
-
-.compare-table td:last-child{
-  text-align:center;
-}
-
-.compare-table tr:last-child td{
-  border-bottom:none;
-}
-
-.compare-table tr:nth-child(even) td{
-  background:var(--cream);
-}
-
-.check{
-  color:var(--moss);
-  font-size:1.1rem;
-}
-
-.dash{
-  color:rgba(62,83,97,.25);
-}
-
-/* Pricing visual cards */
-.sheet-cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:1rem;
-  margin-bottom:1.5rem;
-}
-
-.sheet-card{
-  background:white;
-  border-radius:20px;
-  padding:1.5rem;
-  border:1px solid rgba(62,83,97,.1);
-  display:flex;
-  flex-direction:column;
-  gap:.4rem;
-}
-
-.sheet-card.featured{
-  background:var(--moss);
-  color:white;
-  border-color:var(--moss);
-}
-
-.sheet-card-label{
-  font-size:.7rem;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  font-weight:700;
-  color:var(--moss);
-}
-
-.sheet-card.featured .sheet-card-label{
-  color:rgba(255,255,255,.7);
-}
-
-.sheet-card-name{
-  font-family:"Lora",serif;
-  font-size:1.2rem;
-}
-
-.sheet-card-price{
-  font-size:1.5rem;
-  font-weight:800;
-  color:var(--gold);
-  margin-top:.25rem;
-}
-
-.sheet-card.featured .sheet-card-price{
-  color:#f7d48a;
-}
-
-.sheet-card-desc{
-  font-size:.85rem;
-  color:var(--bark);
-  margin-top:.2rem;
-}
-
-.sheet-card.featured .sheet-card-desc{
-  color:rgba(255,255,255,.8);
-}
-
-/* Plain language box */
-.plain-box{
-  background:var(--cream);
-  border-radius:20px;
-  padding:1.75rem;
-  border:1px solid rgba(62,83,97,.08);
-}
-
-.plain-box h4{
-  font-family:"Lora",serif;
-  font-size:1.15rem;
-  margin-bottom:.6rem;
-}
-
-.plain-box p{
-  color:var(--bark);
-  font-size:.95rem;
-  margin-bottom:.5rem;
-}
-
-.plain-box p:last-child{
-  margin-bottom:0;
-}
-
-.plain-list{
-  list-style:none;
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  gap:.5rem;
-  margin-top:.75rem;
-}
-
-.plain-list li{
-  display:flex;
-  gap:.65rem;
-  font-size:.93rem;
-  color:var(--bark);
-}
-
-.plain-list li::before{
-  content:"→";
-  color:var(--moss);
-  font-weight:700;
-  flex-shrink:0;
-}
-
-.sheet-cta{
-  margin-top:2rem;
-  text-align:center;
-}
-
-.sheet-cta .btn{
-  min-width:220px;
-}
-
-/* Mobile sheet */
-@media(max-width:600px){
-  .sheet-inner{
-    padding:0 1rem 2.5rem;
-  }
-
-  .compare-table{
-    font-size:.8rem;
-  }
-
-  .compare-table th,
-  .compare-table td{
-    padding:.6rem .65rem;
-  }
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-  padding:2.5rem 1rem;
-
-  text-align:center;
-
-  color:rgba(62,83,97,.72);
-}
-
-footer span{
-  color:var(--moss);
-  font-weight:700;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:820px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .hero{
-    padding-top:5rem;
-  }
-
-  .trust-box{
-    grid-template-columns:1fr;
-    padding:2.5rem;
-  }
-
-  .form-row{
-    grid-template-columns:1fr;
-  }
-
-  .button-group{
-    flex-direction:column;
-  }
-
-  .btn{
-    width:100%;
-  }
-
-  section{
-    padding:5rem 0;
-  }
-
-}
-
 </style>
-
 </head>
-
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
-
 <header class="navbar">
-
   <div class="nav-inner">
-
-```
-<a href="#" class="logo">
-  The <span>Patch Web</span> Co.
-</a>
-
-<nav>
-
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#care">Care Plans</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-
-</nav>
-```
-
+    <a href="#" class="logo">The <span>Patch Web</span> Co.</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#care">Care Plans</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
-
 </header>
 
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero">
-
   <div class="container hero-content">
-
-```
-<p class="eyebrow">
-  Ohio • Local • Modern
-</p>
-
-<h1>
-  Websites that help
-  <em>local businesses grow.</em>
-</h1>
-
-<p class="hero-text">
-  The Patch Web Co. builds clean, modern websites for businesses across Ohio —
-  designed for phones, desktops, and the way real customers browse online.
-</p>
-
-<div class="button-group">
-
-  <a href="#contact" class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">
-    Get a Free Quote
-  </a>
-
-  <button onclick="openSheet()" class="btn btn-secondary">
-    View Pricing
-  </button>
-
-</div>
-```
-
+    <p class="eyebrow">Ohio &bull; Local &bull; Modern</p>
+    <h1>Websites that help <em>local businesses grow.</em></h1>
+    <p class="hero-text">The Patch Web Co. builds clean, modern websites for businesses across Ohio &mdash; designed for phones, desktops, and the way real customers browse online.</p>
+    <div class="button-group">
+      <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+      <button onclick="openSheet()" class="btn btn-secondary">View Pricing</button>
+    </div>
   </div>
-
 </section>
-
-<!-- =========================
-     TRUST
-========================= -->
 
 <section class="trust">
-
   <div class="container">
-
-```
-<div class="trust-box">
-
-  <div>
-
-    <h2>
-      Built the way
-      <em>business should be.</em>
-    </h2>
-
+    <div class="trust-box">
+      <div>
+        <h2>Built the way <em>business should be.</em></h2>
+      </div>
+      <div>
+        <p>No giant agency pricing. No confusing contracts. Just straightforward websites, real communication, and ongoing support from a local Ohio business.</p>
+      </div>
+    </div>
   </div>
-
-  <div>
-
-    <p>
-      No giant agency pricing. No confusing contracts.
-      Just straightforward websites, real communication,
-      and ongoing support from a local Ohio business.
-    </p>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
 </section>
-
-<!-- =========================
-     SERVICES
-========================= -->
 
 <section id="services">
-
   <div class="container">
-
-```
-<p class="section-label">
-  Website Packages
-</p>
-
-<h2 class="section-title">
-  Clear pricing.<br>
-  No surprises.
-</h2>
-
-<p class="section-sub">
-  Every website is custom-built around your business,
-  your branding, and your customers.
-</p>
-
-<div class="cards">
-
-  <div class="card">
-
-    <div class="card-number">01</div>
-
-    <h3>Starter Website</h3>
-
-    <p>
-      Perfect for businesses that need a professional online presence.
-    </p>
-
-    <ul>
-      <li>Mobile + desktop responsive design</li>
-      <li>3–5 custom pages</li>
-      <li>Contact form integration</li>
-      <li>Basic SEO setup</li>
-      <li>Domain connection help</li>
-      <li>Business branding integration</li>
-    </ul>
-
-    <div class="price">
-      $500 – $900 One-Time
+    <p class="section-label">Website Packages</p>
+    <h2 class="section-title">Clear pricing.<br>No surprises.</h2>
+    <p class="section-sub">Every website is custom-built around your business, your branding, and your customers.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-number">01</div>
+        <h3>Starter Website</h3>
+        <p>Perfect for businesses that need a professional online presence.</p>
+        <ul>
+          <li>Mobile + desktop responsive design</li>
+          <li>3&ndash;5 custom pages</li>
+          <li>Contact form integration</li>
+          <li>Basic SEO setup</li>
+          <li>Domain connection help</li>
+          <li>Business branding integration</li>
+        </ul>
+        <div class="price">$500 &ndash; $900 One-Time</div>
+      </div>
+      <div class="card">
+        <div class="card-number">02</div>
+        <h3>Business Website</h3>
+        <p>Designed for growing businesses ready for a stronger online presence.</p>
+        <ul>
+          <li>Fully custom design</li>
+          <li>Expanded service pages</li>
+          <li>Photo galleries &amp; portfolios</li>
+          <li>Quote request forms</li>
+          <li>SEO optimization setup</li>
+          <li>Performance optimization</li>
+          <li>Scheduling integrations</li>
+        </ul>
+        <div class="price">$1,200 &ndash; $2,500 One-Time</div>
+      </div>
+      <div class="card">
+        <div class="card-number">03</div>
+        <h3>Full Ownership</h3>
+        <p>Full website ownership with no long-term contracts or lock-ins.</p>
+        <ul>
+          <li>Full website source files</li>
+          <li>Hosting transfer assistance</li>
+          <li>Editable website systems</li>
+          <li>Basic walkthrough included</li>
+          <li>Full ownership rights</li>
+        </ul>
+        <div class="price">Project Cost + Transfer Fee</div>
+      </div>
+      <div class="card">
+        <div class="card-number">04</div>
+        <h3>Website Refresh</h3>
+        <p>Already have a website? We'll modernize what you've got &mdash; no full rebuild required.</p>
+        <ul>
+          <li>Visual redesign &amp; cleanup</li>
+          <li>Mobile responsiveness fixes</li>
+          <li>Speed &amp; performance improvements</li>
+          <li>Updated content &amp; photos</li>
+          <li>SEO tune-up</li>
+          <li>Contact form updates</li>
+        </ul>
+        <div class="price"><a href="#contact" style="color:inherit;text-decoration:none;">Contact for a Quote</a></div>
+        <button class="price-link" onclick="openSheet()">
+          See how pricing works
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
     </div>
-
   </div>
-
-  <div class="card">
-
-    <div class="card-number">02</div>
-
-    <h3>Business Website</h3>
-
-    <p>
-      Designed for growing businesses ready for a stronger online presence.
-    </p>
-
-    <ul>
-      <li>Fully custom design</li>
-      <li>Expanded service pages</li>
-      <li>Photo galleries & portfolios</li>
-      <li>Quote request forms</li>
-      <li>SEO optimization setup</li>
-      <li>Performance optimization</li>
-      <li>Scheduling integrations</li>
-    </ul>
-
-    <div class="price">
-      $1,200 – $2,500 One-Time
-    </div>
-
-  </div>
-
-  <div class="card">
-
-    <div class="card-number">03</div>
-
-    <h3>Full Ownership</h3>
-
-    <p>
-      Full website ownership with no long-term contracts or lock-ins.
-    </p>
-
-    <ul>
-      <li>Full website source files</li>
-      <li>Hosting transfer assistance</li>
-      <li>Editable website systems</li>
-      <li>Basic walkthrough included</li>
-      <li>Full ownership rights</li>
-    </ul>
-
-    <div class="price">
-      Project Cost + Transfer Fee
-    </div>
-
-  </div>
-
-  <div class="card">
-
-    <div class="card-number">04</div>
-
-    <h3>Website Refresh</h3>
-
-    <p>
-      Already have a website? We'll modernize what you've got — no full rebuild required.
-    </p>
-
-    <ul>
-      <li>Visual redesign & cleanup</li>
-      <li>Mobile responsiveness fixes</li>
-      <li>Speed & performance improvements</li>
-      <li>Updated content & photos</li>
-      <li>SEO tune-up</li>
-      <li>Contact form updates</li>
-    </ul>
-
-    <div class="price">
-      <a href="#contact" style="color:inherit;text-decoration:none;">Contact for a Quote</a>
-    </div>
-
-    <button class="price-link" onclick="openSheet()">
-      See how pricing works
-      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-    </button>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
 </section>
-
-<!-- =========================
-     CARE PLANS
-========================= -->
 
 <section id="care">
-
   <div class="container">
-
-```
-<p class="section-label">
-  Care Plans
-</p>
-
-<h2 class="section-title">
-  Ongoing support after launch.
-</h2>
-
-<p class="section-sub">
-  Whether you want occasional updates or full website management,
-  we offer flexible monthly support plans.
-</p>
-
-<div class="cards">
-
-  <div class="card">
-
-    <div class="card-number">01</div>
-
-    <h3>Basic Care</h3>
-
-    <p>
-      Essential hosting and maintenance support.
-    </p>
-
-    <ul>
-      <li>Secure website hosting</li>
-      <li>Website backups</li>
-      <li>Monthly updates</li>
-      <li>Security monitoring</li>
-      <li>Minor content edits</li>
-    </ul>
-
-    <div class="price">
-      $49 / Month
+    <p class="section-label">Care Plans</p>
+    <h2 class="section-title">Ongoing support after launch.</h2>
+    <p class="section-sub">Whether you want occasional updates or full website management, we offer flexible monthly support plans.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-number">01</div>
+        <h3>Basic Care</h3>
+        <p>Essential hosting and maintenance support.</p>
+        <ul>
+          <li>Secure website hosting</li>
+          <li>Website backups</li>
+          <li>Monthly updates</li>
+          <li>Security monitoring</li>
+          <li>Minor content edits</li>
+        </ul>
+        <div class="price">$49 / Month</div>
+      </div>
+      <div class="card">
+        <div class="card-number">02</div>
+        <h3>Growth Care</h3>
+        <p>Ongoing support for growing businesses.</p>
+        <ul>
+          <li>Everything in Basic Care</li>
+          <li>Priority support</li>
+          <li>Monthly content updates</li>
+          <li>SEO performance checks</li>
+          <li>Additional page creation</li>
+        </ul>
+        <div class="price">$99 / Month</div>
+      </div>
+      <div class="card">
+        <div class="card-number">03</div>
+        <h3>Full Service Care</h3>
+        <p>Complete website management with ongoing improvements.</p>
+        <ul>
+          <li>Everything in Growth Care</li>
+          <li>Unlimited small edits</li>
+          <li>Landing page creation</li>
+          <li>Performance optimization</li>
+          <li>Ongoing design improvements</li>
+        </ul>
+        <div class="price">$149 / Month</div>
+      </div>
     </div>
-
   </div>
-
-  <div class="card">
-
-    <div class="card-number">02</div>
-
-    <h3>Growth Care</h3>
-
-    <p>
-      Ongoing support for growing businesses.
-    </p>
-
-    <ul>
-      <li>Everything in Basic Care</li>
-      <li>Priority support</li>
-      <li>Monthly content updates</li>
-      <li>SEO performance checks</li>
-      <li>Additional page creation</li>
-    </ul>
-
-    <div class="price">
-      $99 / Month
-    </div>
-
-  </div>
-
-  <div class="card">
-
-    <div class="card-number">03</div>
-
-    <h3>Full Service Care</h3>
-
-    <p>
-      Complete website management with ongoing improvements.
-    </p>
-
-    <ul>
-      <li>Everything in Growth Care</li>
-      <li>Unlimited small edits</li>
-      <li>Landing page creation</li>
-      <li>Performance optimization</li>
-      <li>Ongoing design improvements</li>
-    </ul>
-
-    <div class="price">
-      $149 / Month
-    </div>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
 </section>
-
-<!-- =========================
-     PROCESS
-========================= -->
 
 <section id="process">
-
   <div class="container">
-
-```
-<p class="section-label">
-  Process
-</p>
-
-<h2 class="section-title">
-  Simple from start to launch.
-</h2>
-
-<div class="process-grid">
-
-  <div class="process-card">
-
-    <div class="process-number">01</div>
-
-    <h3>Consultation</h3>
-
-    <p>
-      We learn about your business, goals, and style preferences.
-    </p>
-
+    <p class="section-label">Process</p>
+    <h2 class="section-title">Simple from start to launch.</h2>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-number">01</div>
+        <h3>Consultation</h3>
+        <p>We learn about your business, goals, and style preferences.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">02</div>
+        <h3>Design</h3>
+        <p>We build a custom website designed around your brand and customers.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">03</div>
+        <h3>Launch</h3>
+        <p>Your website goes live fully optimized for mobile and desktop.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">04</div>
+        <h3>Support</h3>
+        <p>Ongoing updates and support available anytime after launch.</p>
+      </div>
+    </div>
   </div>
-
-  <div class="process-card">
-
-    <div class="process-number">02</div>
-
-    <h3>Design</h3>
-
-    <p>
-      We build a custom website designed around your brand and customers.
-    </p>
-
-  </div>
-
-  <div class="process-card">
-
-    <div class="process-number">03</div>
-
-    <h3>Launch</h3>
-
-    <p>
-      Your website goes live fully optimized for mobile and desktop.
-    </p>
-
-  </div>
-
-  <div class="process-card">
-
-    <div class="process-number">04</div>
-
-    <h3>Support</h3>
-
-    <p>
-      Ongoing updates and support available anytime after launch.
-    </p>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
 </section>
-
-<!-- =========================
-     FAQ
-========================= -->
 
 <section>
-
   <div class="container">
-
-```
-<p class="section-label">
-  FAQ
-</p>
-
-<h2 class="section-title">
-  Questions people usually ask.
-</h2>
-
-<div class="faq-grid">
-
-  <div class="faq-item">
-    <h3>How long does a website take?</h3>
-    <p>
-      Most websites launch within 1–3 weeks depending on the project size.
-    </p>
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Questions people usually ask.</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>How long does a website take?</h3>
+        <p>Most websites launch within 1&ndash;3 weeks depending on the project size.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you build for mobile devices?</h3>
+        <p>Yes. Every website is fully responsive for phones, tablets, and desktops.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I update the site myself?</h3>
+        <p>Absolutely. We can provide editable systems or manage updates for you.</p>
+      </div>
+    </div>
   </div>
-
-  <div class="faq-item">
-    <h3>Do you build for mobile devices?</h3>
-    <p>
-      Yes. Every website is fully responsive for phones, tablets, and desktops.
-    </p>
-  </div>
-
-  <div class="faq-item">
-    <h3>Can I update the site myself?</h3>
-    <p>
-      Absolutely. We can provide editable systems or manage updates for you.
-    </p>
-  </div>
-
-</div>
-```
-
-  </div>
-
 </section>
-
-<!-- =========================
-     CONTACT
-========================= -->
 
 <section id="contact">
-
   <div class="container">
-
-```
-<div class="contact-wrap">
-
-  <p class="section-label">
-    Contact
-  </p>
-
-  <h2 class="section-title">
-    Let's build something solid.
-  </h2>
-
-  <p class="section-sub">
-    Fill out the form below and we'll reach out within one business day.
-  </p>
-
-  <!-- Confirmation message (hidden until form submitted) -->
-  <div class="confirmation" id="confirmation">
-    <div class="confirmation-icon">
-      <svg viewBox="0 0 24 24">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
+    <div class="contact-wrap">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Let's build something solid.</h2>
+      <p class="section-sub">Fill out the form below and we'll reach out within one business day.</p>
+      <div class="confirmation" id="confirmation">
+        <div class="confirmation-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h3>Message received!</h3>
+        <p>Thanks for reaching out &mdash; we'll be in touch within one business day.</p>
+      </div>
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/xvzldvwb" method="POST">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="text" name="business" placeholder="Business Name" />
+        </div>
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="tel" name="phone" placeholder="Phone Number" />
+        <select name="service">
+          <option value="">What are you interested in?</option>
+          <option>Starter Website</option>
+          <option>Business Website</option>
+          <option>Website Refresh</option>
+          <option>Monthly Care Plan</option>
+        </select>
+        <textarea name="message" placeholder="Tell us about your business..."></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
     </div>
-    <h3>Message received!</h3>
-    <p>Thanks for reaching out — we'll be in touch within one business day.</p>
   </div>
-
-  <form
-    id="contact-form"
-    class="contact-form"
-    action="https://formspree.io/f/xvzldvwb"
-    method="POST"
-  >
-
-    <div class="form-row">
-
-      <input
-        type="text"
-        name="name"
-        placeholder="Your Name"
-        required
-      />
-
-      <input
-        type="text"
-        name="business"
-        placeholder="Business Name"
-      />
-
-    </div>
-
-    <input
-      type="email"
-      name="email"
-      placeholder="Email Address"
-      required
-    />
-
-    <input
-      type="tel"
-      name="phone"
-      placeholder="Phone Number"
-    />
-
-    <select name="service">
-
-      <option value="">
-        What are you interested in?
-      </option>
-
-      <option>Starter Website</option>
-      <option>Business Website</option>
-      <option>Website Refresh</option>
-      <option>Monthly Care Plan</option>
-
-    </select>
-
-    <textarea
-      name="message"
-      placeholder="Tell us about your business..."
-    ></textarea>
-
-    <button
-      type="submit"
-      class="btn btn-primary"
-    >
-      Send Message
-    </button>
-
-  </form>
-
-</div>
-```
-
-  </div>
-
 </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
-
-  <p>
-    © 2026
-    <span>The Patch Web Co.</span>
-    • Built locally in Ohio
-  </p>
-
+  <p>&copy; 2026 <span>The Patch Web Co.</span> &bull; Built locally in Ohio</p>
 </footer>
-
-<!-- =========================
-     PRICING BOTTOM SHEET
-========================= -->
 
 <div class="sheet-overlay" id="sheetOverlay" onclick="closeSheet()"></div>
 
 <div class="pricing-sheet" id="pricingSheet">
-
   <div class="sheet-handle">
     <div class="sheet-handle-bar"></div>
-    <button class="sheet-close" onclick="closeSheet()">✕</button>
+    <button class="sheet-close" onclick="closeSheet()">&#x2715;</button>
   </div>
-
   <div class="sheet-inner">
+    <h2 class="sheet-title">Pricing, plain and simple.</h2>
+    <p class="sheet-sub">No hidden fees. No confusing tiers. Here's exactly what you get and what it costs.</p>
 
 ```
-<h2 class="sheet-title">Pricing, plain and simple.</h2>
-<p class="sheet-sub">No hidden fees. No confusing tiers. Here's exactly what you get and what it costs.</p>
-
-<!-- NEW WEBSITES -->
 <div class="sheet-section">
   <p class="sheet-section-label">New Website Packages</p>
-
   <div class="sheet-cards">
-
     <div class="sheet-card">
       <span class="sheet-card-label">Starter</span>
       <span class="sheet-card-name">Starter Website</span>
-      <span class="sheet-card-price">$500 – $900</span>
+      <span class="sheet-card-price">$500 &ndash; $900</span>
       <span class="sheet-card-desc">One-time cost. Great for brand-new businesses that just need a clean, professional home online.</span>
     </div>
-
     <div class="sheet-card featured">
       <span class="sheet-card-label">Most Popular</span>
       <span class="sheet-card-name">Business Website</span>
-      <span class="sheet-card-price">$1,200 – $2,500</span>
-      <span class="sheet-card-desc">One-time cost. For businesses that want something bigger — more pages, more features, more impact.</span>
+      <span class="sheet-card-price">$1,200 &ndash; $2,500</span>
+      <span class="sheet-card-desc">One-time cost. For businesses that want something bigger &mdash; more pages, more features, more impact.</span>
     </div>
-
     <div class="sheet-card">
       <span class="sheet-card-label">Own It</span>
       <span class="sheet-card-name">Full Ownership</span>
       <span class="sheet-card-price">Project + Fee</span>
       <span class="sheet-card-desc">Want the actual files and full control? We hand everything off to you with a walkthrough.</span>
     </div>
-
   </div>
-
   <div class="plain-box">
     <h4>What does "one-time cost" actually mean?</h4>
-    <p>You pay once to build the website — that's it. No recurring fees from us unless you choose a Care Plan. You own your website after it's built.</p>
+    <p>You pay once to build the website &mdash; that's it. No recurring fees from us unless you choose a Care Plan. You own your website after it's built.</p>
     <ul class="plain-list">
-      <li>Starter is perfect if you need 3–5 pages and a contact form</li>
+      <li>Starter is perfect if you need 3&ndash;5 pages and a contact form</li>
       <li>Business is for more complex sites with galleries, scheduling, or extra pages</li>
       <li>Full Ownership means you get the raw files to host wherever you want</li>
     </ul>
   </div>
 </div>
 
-<!-- WEBSITE REFRESH -->
 <div class="sheet-section">
   <p class="sheet-section-label">Website Refresh</p>
-
   <div class="plain-box">
     <h4>Already have a website that needs some love?</h4>
-    <p>A Website Refresh is for businesses that don't need a full rebuild — just a cleanup, modernization, or fix of what's already there.</p>
+    <p>A Website Refresh is for businesses that don't need a full rebuild &mdash; just a cleanup, modernization, or fix of what's already there.</p>
     <ul class="plain-list">
       <li>Make it look better and work on phones</li>
       <li>Speed it up so it doesn't load slowly</li>
       <li>Update photos, text, and contact info</li>
       <li>Fix broken forms or outdated links</li>
     </ul>
-    <p style="margin-top:1rem;">Every refresh is different, so pricing is based on what your site actually needs. <strong>Reach out for a free look — no commitment.</strong></p>
+    <p style="margin-top:1rem;">Every refresh is different, so pricing is based on what your site actually needs. <strong>Reach out for a free look &mdash; no commitment.</strong></p>
   </div>
 </div>
 
-<!-- CARE PLANS -->
 <div class="sheet-section">
   <p class="sheet-section-label">Monthly Care Plans</p>
-
   <div class="sheet-cards">
-
     <div class="sheet-card">
       <span class="sheet-card-label">Basic</span>
       <span class="sheet-card-name">Basic Care</span>
       <span class="sheet-card-price">$49/mo</span>
       <span class="sheet-card-desc">Hosting, backups, security, and minor edits. Set it and forget it.</span>
     </div>
-
     <div class="sheet-card featured">
       <span class="sheet-card-label">Best Value</span>
       <span class="sheet-card-name">Growth Care</span>
       <span class="sheet-card-price">$99/mo</span>
       <span class="sheet-card-desc">Everything in Basic plus monthly content updates and SEO checks.</span>
     </div>
-
     <div class="sheet-card">
       <span class="sheet-card-label">Full Service</span>
       <span class="sheet-card-name">Full Service Care</span>
       <span class="sheet-card-price">$149/mo</span>
       <span class="sheet-card-desc">Unlimited small edits, new landing pages, and ongoing design improvements.</span>
     </div>
-
   </div>
-
   <div class="plain-box">
     <h4>Do I have to get a Care Plan?</h4>
-    <p>Nope — Care Plans are completely optional. But if you don't want to think about your website after launch, a plan keeps everything running smoothly without you lifting a finger.</p>
+    <p>Nope &mdash; Care Plans are completely optional. But if you don't want to think about your website after launch, a plan keeps everything running smoothly without you lifting a finger.</p>
     <ul class="plain-list">
       <li>Basic is great if you just want your site hosted and backed up safely</li>
       <li>Growth is best if you want to keep your site fresh with regular updates</li>
-      <li>Full Service means we handle basically everything — you just send us changes</li>
+      <li>Full Service means we handle basically everything &mdash; you just send us changes</li>
     </ul>
   </div>
 </div>
 
-<!-- COMPARISON TABLE -->
 <div class="sheet-section">
   <p class="sheet-section-label">Care Plan Comparison</p>
-
   <div style="overflow-x:auto;border-radius:16px;">
     <table class="compare-table">
       <thead>
@@ -1673,35 +506,31 @@ footer span{
         </tr>
       </thead>
       <tbody>
-        <tr><td>Secure hosting</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Website backups</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Security monitoring</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Minor content edits</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Priority support</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Monthly content updates</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>SEO performance checks</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Additional page creation</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
-        <tr><td>Unlimited small edits</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
-        <tr><td>Landing page creation</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
-        <tr><td>Ongoing design improvements</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
+        <tr><td>Secure hosting</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Website backups</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Security monitoring</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Minor content edits</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Priority support</td><td class="dash">&ndash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Monthly content updates</td><td class="dash">&ndash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+        <tr><td>SEO performance checks</td><td class="dash">&ndash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Additional page creation</td><td class="dash">&ndash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Unlimited small edits</td><td class="dash">&ndash;</td><td class="dash">&ndash;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Landing page creation</td><td class="dash">&ndash;</td><td class="dash">&ndash;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Ongoing design improvements</td><td class="dash">&ndash;</td><td class="dash">&ndash;</td><td class="check">&#10003;</td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
 <div class="sheet-cta">
-  <a href="#contact" class="btn btn-primary" onclick="closeSheet()">
-    Get a Free Quote
-  </a>
+  <a href="#contact" class="btn btn-primary" onclick="closeSheet()">Get a Free Quote</a>
 </div>
 ```
 
   </div>
-
 </div>
 
 <script>
-  // Contact form
   const form = document.getElementById('contact-form');
   const confirmation = document.getElementById('confirmation');
 
@@ -1709,11 +538,7 @@ footer span{
     e.preventDefault();
     const data = new FormData(form);
     try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+      const response = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
       if (response.ok) {
         form.style.display = 'none';
         confirmation.classList.add('visible');
@@ -1725,7 +550,6 @@ footer span{
     }
   });
 
-  // Pricing sheet
   const overlay = document.getElementById('sheetOverlay');
   const sheet = document.getElementById('pricingSheet');
 
@@ -1741,18 +565,13 @@ footer span{
     document.body.style.overflow = '';
   }
 
-  // Swipe down to close on mobile
   let startY = 0;
   sheet.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
   sheet.addEventListener('touchend', e => {
-    const delta = e.changedTouches[0].clientY - startY;
-    if (delta > 80 && sheet.scrollTop === 0) closeSheet();
+    if (e.changedTouches[0].clientY - startY > 80 && sheet.scrollTop === 0) closeSheet();
   }, { passive: true });
 
-  // Close on Escape key
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeSheet();
-  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
 </script>
 
 </body>

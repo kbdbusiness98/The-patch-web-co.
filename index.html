@@ -555,6 +555,348 @@ textarea:focus{
 }
 
 /* =========================
+   PRICING SHEET TRIGGER
+========================= */
+
+.price-link{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  margin-top:.75rem;
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--moss);
+  cursor:pointer;
+  background:none;
+  border:none;
+  font-family:inherit;
+  padding:0;
+  transition:var(--transition);
+}
+
+.price-link:hover{
+  color:var(--soil);
+}
+
+.price-link svg{
+  width:14px;
+  height:14px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:var(--transition);
+}
+
+.price-link:hover svg{
+  transform:translateY(2px);
+}
+
+/* =========================
+   BOTTOM SHEET OVERLAY
+========================= */
+
+.sheet-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(31,41,51,.55);
+  backdrop-filter:blur(4px);
+  z-index:2000;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .35s ease;
+}
+
+.sheet-overlay.open{
+  opacity:1;
+  pointer-events:all;
+}
+
+/* =========================
+   BOTTOM SHEET
+========================= */
+
+.pricing-sheet{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:2001;
+  background:var(--paper);
+  border-radius:28px 28px 0 0;
+  max-height:92vh;
+  overflow-y:auto;
+  transform:translateY(100%);
+  transition:transform .4s cubic-bezier(.32,.72,0,1);
+  -webkit-overflow-scrolling:touch;
+}
+
+.pricing-sheet.open{
+  transform:translateY(0);
+}
+
+.sheet-handle{
+  display:flex;
+  justify-content:center;
+  padding:1rem 0 .5rem;
+  position:sticky;
+  top:0;
+  background:var(--paper);
+  z-index:10;
+}
+
+.sheet-handle-bar{
+  width:40px;
+  height:4px;
+  background:rgba(62,83,97,.2);
+  border-radius:999px;
+}
+
+.sheet-close{
+  position:absolute;
+  top:1rem;
+  right:1.25rem;
+  background:var(--cream);
+  border:none;
+  border-radius:50%;
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:1.1rem;
+  color:var(--bark);
+  transition:var(--transition);
+}
+
+.sheet-close:hover{
+  background:var(--sky);
+  color:var(--soil);
+}
+
+.sheet-inner{
+  padding:0 1.5rem 3rem;
+  max-width:860px;
+  margin:auto;
+}
+
+.sheet-title{
+  font-family:"Lora",serif;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  line-height:1.1;
+  margin-bottom:.5rem;
+}
+
+.sheet-sub{
+  color:var(--bark);
+  margin-bottom:2.5rem;
+}
+
+/* Sheet sections */
+.sheet-section{
+  margin-bottom:2.5rem;
+}
+
+.sheet-section-label{
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-size:.68rem;
+  font-weight:700;
+  color:var(--moss);
+  margin-bottom:1rem;
+}
+
+/* Comparison table */
+.compare-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.92rem;
+}
+
+.compare-table th{
+  text-align:left;
+  padding:.75rem 1rem;
+  background:var(--moss);
+  color:white;
+  font-family:"Lora",serif;
+  font-weight:400;
+}
+
+.compare-table th:first-child{
+  border-radius:16px 0 0 0;
+}
+
+.compare-table th:last-child{
+  border-radius:0 16px 0 0;
+  text-align:center;
+}
+
+.compare-table td{
+  padding:.75rem 1rem;
+  border-bottom:1px solid rgba(62,83,97,.07);
+  color:var(--bark);
+}
+
+.compare-table td:last-child{
+  text-align:center;
+}
+
+.compare-table tr:last-child td{
+  border-bottom:none;
+}
+
+.compare-table tr:nth-child(even) td{
+  background:var(--cream);
+}
+
+.check{
+  color:var(--moss);
+  font-size:1.1rem;
+}
+
+.dash{
+  color:rgba(62,83,97,.25);
+}
+
+/* Pricing visual cards */
+.sheet-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+
+.sheet-card{
+  background:white;
+  border-radius:20px;
+  padding:1.5rem;
+  border:1px solid rgba(62,83,97,.1);
+  display:flex;
+  flex-direction:column;
+  gap:.4rem;
+}
+
+.sheet-card.featured{
+  background:var(--moss);
+  color:white;
+  border-color:var(--moss);
+}
+
+.sheet-card-label{
+  font-size:.7rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-weight:700;
+  color:var(--moss);
+}
+
+.sheet-card.featured .sheet-card-label{
+  color:rgba(255,255,255,.7);
+}
+
+.sheet-card-name{
+  font-family:"Lora",serif;
+  font-size:1.2rem;
+}
+
+.sheet-card-price{
+  font-size:1.5rem;
+  font-weight:800;
+  color:var(--gold);
+  margin-top:.25rem;
+}
+
+.sheet-card.featured .sheet-card-price{
+  color:#f7d48a;
+}
+
+.sheet-card-desc{
+  font-size:.85rem;
+  color:var(--bark);
+  margin-top:.2rem;
+}
+
+.sheet-card.featured .sheet-card-desc{
+  color:rgba(255,255,255,.8);
+}
+
+/* Plain language box */
+.plain-box{
+  background:var(--cream);
+  border-radius:20px;
+  padding:1.75rem;
+  border:1px solid rgba(62,83,97,.08);
+}
+
+.plain-box h4{
+  font-family:"Lora",serif;
+  font-size:1.15rem;
+  margin-bottom:.6rem;
+}
+
+.plain-box p{
+  color:var(--bark);
+  font-size:.95rem;
+  margin-bottom:.5rem;
+}
+
+.plain-box p:last-child{
+  margin-bottom:0;
+}
+
+.plain-list{
+  list-style:none;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+  margin-top:.75rem;
+}
+
+.plain-list li{
+  display:flex;
+  gap:.65rem;
+  font-size:.93rem;
+  color:var(--bark);
+}
+
+.plain-list li::before{
+  content:"→";
+  color:var(--moss);
+  font-weight:700;
+  flex-shrink:0;
+}
+
+.sheet-cta{
+  margin-top:2rem;
+  text-align:center;
+}
+
+.sheet-cta .btn{
+  min-width:220px;
+}
+
+/* Mobile sheet */
+@media(max-width:600px){
+  .sheet-inner{
+    padding:0 1rem 2.5rem;
+  }
+
+  .compare-table{
+    font-size:.8rem;
+  }
+
+  .compare-table th,
+  .compare-table td{
+    padding:.6rem .65rem;
+  }
+}
+
+/* =========================
    FOOTER
 ========================= */
 
@@ -668,13 +1010,13 @@ footer span{
 
 <div class="button-group">
 
-  <a href="#contact" class="btn btn-primary">
+  <a href="#contact" class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">
     Get a Free Quote
   </a>
 
-  <a href="#services" class="btn btn-secondary">
+  <button onclick="openSheet()" class="btn btn-secondary">
     View Pricing
-  </a>
+  </button>
 
 </div>
 ```
@@ -817,6 +1159,36 @@ footer span{
     <div class="price">
       Project Cost + Transfer Fee
     </div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-number">04</div>
+
+    <h3>Website Refresh</h3>
+
+    <p>
+      Already have a website? We'll modernize what you've got — no full rebuild required.
+    </p>
+
+    <ul>
+      <li>Visual redesign & cleanup</li>
+      <li>Mobile responsiveness fixes</li>
+      <li>Speed & performance improvements</li>
+      <li>Updated content & photos</li>
+      <li>SEO tune-up</li>
+      <li>Contact form updates</li>
+    </ul>
+
+    <div class="price">
+      <a href="#contact" style="color:inherit;text-decoration:none;">Contact for a Quote</a>
+    </div>
+
+    <button class="price-link" onclick="openSheet()">
+      See how pricing works
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
 
   </div>
 
@@ -1130,6 +1502,7 @@ footer span{
 
       <option>Starter Website</option>
       <option>Business Website</option>
+      <option>Website Refresh</option>
       <option>Monthly Care Plan</option>
 
     </select>
@@ -1169,22 +1542,178 @@ footer span{
 
 </footer>
 
+<!-- =========================
+     PRICING BOTTOM SHEET
+========================= -->
+
+<div class="sheet-overlay" id="sheetOverlay" onclick="closeSheet()"></div>
+
+<div class="pricing-sheet" id="pricingSheet">
+
+  <div class="sheet-handle">
+    <div class="sheet-handle-bar"></div>
+    <button class="sheet-close" onclick="closeSheet()">✕</button>
+  </div>
+
+  <div class="sheet-inner">
+
+```
+<h2 class="sheet-title">Pricing, plain and simple.</h2>
+<p class="sheet-sub">No hidden fees. No confusing tiers. Here's exactly what you get and what it costs.</p>
+
+<!-- NEW WEBSITES -->
+<div class="sheet-section">
+  <p class="sheet-section-label">New Website Packages</p>
+
+  <div class="sheet-cards">
+
+    <div class="sheet-card">
+      <span class="sheet-card-label">Starter</span>
+      <span class="sheet-card-name">Starter Website</span>
+      <span class="sheet-card-price">$500 – $900</span>
+      <span class="sheet-card-desc">One-time cost. Great for brand-new businesses that just need a clean, professional home online.</span>
+    </div>
+
+    <div class="sheet-card featured">
+      <span class="sheet-card-label">Most Popular</span>
+      <span class="sheet-card-name">Business Website</span>
+      <span class="sheet-card-price">$1,200 – $2,500</span>
+      <span class="sheet-card-desc">One-time cost. For businesses that want something bigger — more pages, more features, more impact.</span>
+    </div>
+
+    <div class="sheet-card">
+      <span class="sheet-card-label">Own It</span>
+      <span class="sheet-card-name">Full Ownership</span>
+      <span class="sheet-card-price">Project + Fee</span>
+      <span class="sheet-card-desc">Want the actual files and full control? We hand everything off to you with a walkthrough.</span>
+    </div>
+
+  </div>
+
+  <div class="plain-box">
+    <h4>What does "one-time cost" actually mean?</h4>
+    <p>You pay once to build the website — that's it. No recurring fees from us unless you choose a Care Plan. You own your website after it's built.</p>
+    <ul class="plain-list">
+      <li>Starter is perfect if you need 3–5 pages and a contact form</li>
+      <li>Business is for more complex sites with galleries, scheduling, or extra pages</li>
+      <li>Full Ownership means you get the raw files to host wherever you want</li>
+    </ul>
+  </div>
+</div>
+
+<!-- WEBSITE REFRESH -->
+<div class="sheet-section">
+  <p class="sheet-section-label">Website Refresh</p>
+
+  <div class="plain-box">
+    <h4>Already have a website that needs some love?</h4>
+    <p>A Website Refresh is for businesses that don't need a full rebuild — just a cleanup, modernization, or fix of what's already there.</p>
+    <ul class="plain-list">
+      <li>Make it look better and work on phones</li>
+      <li>Speed it up so it doesn't load slowly</li>
+      <li>Update photos, text, and contact info</li>
+      <li>Fix broken forms or outdated links</li>
+    </ul>
+    <p style="margin-top:1rem;">Every refresh is different, so pricing is based on what your site actually needs. <strong>Reach out for a free look — no commitment.</strong></p>
+  </div>
+</div>
+
+<!-- CARE PLANS -->
+<div class="sheet-section">
+  <p class="sheet-section-label">Monthly Care Plans</p>
+
+  <div class="sheet-cards">
+
+    <div class="sheet-card">
+      <span class="sheet-card-label">Basic</span>
+      <span class="sheet-card-name">Basic Care</span>
+      <span class="sheet-card-price">$49/mo</span>
+      <span class="sheet-card-desc">Hosting, backups, security, and minor edits. Set it and forget it.</span>
+    </div>
+
+    <div class="sheet-card featured">
+      <span class="sheet-card-label">Best Value</span>
+      <span class="sheet-card-name">Growth Care</span>
+      <span class="sheet-card-price">$99/mo</span>
+      <span class="sheet-card-desc">Everything in Basic plus monthly content updates and SEO checks.</span>
+    </div>
+
+    <div class="sheet-card">
+      <span class="sheet-card-label">Full Service</span>
+      <span class="sheet-card-name">Full Service Care</span>
+      <span class="sheet-card-price">$149/mo</span>
+      <span class="sheet-card-desc">Unlimited small edits, new landing pages, and ongoing design improvements.</span>
+    </div>
+
+  </div>
+
+  <div class="plain-box">
+    <h4>Do I have to get a Care Plan?</h4>
+    <p>Nope — Care Plans are completely optional. But if you don't want to think about your website after launch, a plan keeps everything running smoothly without you lifting a finger.</p>
+    <ul class="plain-list">
+      <li>Basic is great if you just want your site hosted and backed up safely</li>
+      <li>Growth is best if you want to keep your site fresh with regular updates</li>
+      <li>Full Service means we handle basically everything — you just send us changes</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="sheet-section">
+  <p class="sheet-section-label">Care Plan Comparison</p>
+
+  <div style="overflow-x:auto;border-radius:16px;">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>What's included</th>
+          <th>Basic $49</th>
+          <th>Growth $99</th>
+          <th>Full $149</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Secure hosting</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Website backups</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Security monitoring</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Minor content edits</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Priority support</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Monthly content updates</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>SEO performance checks</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Additional page creation</td><td class="dash">–</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Unlimited small edits</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
+        <tr><td>Landing page creation</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
+        <tr><td>Ongoing design improvements</td><td class="dash">–</td><td class="dash">–</td><td class="check">✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sheet-cta">
+  <a href="#contact" class="btn btn-primary" onclick="closeSheet()">
+    Get a Free Quote
+  </a>
+</div>
+```
+
+  </div>
+
+</div>
+
 <script>
+  // Contact form
   const form = document.getElementById('contact-form');
   const confirmation = document.getElementById('confirmation');
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
-
     const data = new FormData(form);
-
     try {
       const response = await fetch(form.action, {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
       });
-
       if (response.ok) {
         form.style.display = 'none';
         confirmation.classList.add('visible');
@@ -1194,6 +1723,35 @@ footer span{
     } catch (err) {
       alert('Something went wrong. Please try again or email us directly.');
     }
+  });
+
+  // Pricing sheet
+  const overlay = document.getElementById('sheetOverlay');
+  const sheet = document.getElementById('pricingSheet');
+
+  function openSheet() {
+    overlay.classList.add('open');
+    sheet.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSheet() {
+    overlay.classList.remove('open');
+    sheet.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Swipe down to close on mobile
+  let startY = 0;
+  sheet.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+  sheet.addEventListener('touchend', e => {
+    const delta = e.changedTouches[0].clientY - startY;
+    if (delta > 80 && sheet.scrollTop === 0) closeSheet();
+  }, { passive: true });
+
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSheet();
   });
 </script>
 

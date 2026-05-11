@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 
@@ -8,8 +9,8 @@
 <title>The Patch Web Co. | Websites for Local Businesses Across Ohio</title>
 
 <meta
-  name="description"
-  content="Modern websites for local businesses across Ohio. Mobile-friendly, fast, clean, and built around your business."
+name="description"
+content="Modern websites for local businesses across Ohio. Mobile-friendly, fast, clean, and built around your business."
 />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -503,6 +504,57 @@ textarea:focus{
 }
 
 /* =========================
+   CONFIRMATION
+========================= */
+
+.confirmation{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:3rem 2rem;
+  gap:1rem;
+}
+
+.confirmation.visible{
+  display:flex;
+}
+
+.confirmation-icon{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:var(--moss);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:.5rem;
+}
+
+.confirmation-icon svg{
+  width:30px;
+  height:30px;
+  stroke:white;
+  fill:none;
+  stroke-width:2.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.confirmation h3{
+  font-family:"Lora",serif;
+  font-size:1.8rem;
+  color:var(--soil);
+}
+
+.confirmation p{
+  color:var(--bark);
+  max-width:420px;
+  font-size:1.05rem;
+}
+
+/* =========================
    FOOTER
 ========================= */
 
@@ -570,20 +622,22 @@ footer span{
 
   <div class="nav-inner">
 
-    <a href="#" class="logo">
-      The <span>Patch Web</span> Co.
-    </a>
+```
+<a href="#" class="logo">
+  The <span>Patch Web</span> Co.
+</a>
 
-    <nav>
+<nav>
 
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#care">Care Plans</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#care">Care Plans</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 
-    </nav>
+</nav>
+```
 
   </div>
 
@@ -597,31 +651,33 @@ footer span{
 
   <div class="container hero-content">
 
-    <p class="eyebrow">
-      Ohio • Local • Modern
-    </p>
+```
+<p class="eyebrow">
+  Ohio • Local • Modern
+</p>
 
-    <h1>
-      Websites that help
-      <em>local businesses grow.</em>
-    </h1>
+<h1>
+  Websites that help
+  <em>local businesses grow.</em>
+</h1>
 
-    <p class="hero-text">
-      The Patch Web Co. builds clean, modern websites for businesses across Ohio —
-      designed for phones, desktops, and the way real customers browse online.
-    </p>
+<p class="hero-text">
+  The Patch Web Co. builds clean, modern websites for businesses across Ohio —
+  designed for phones, desktops, and the way real customers browse online.
+</p>
 
-    <div class="button-group">
+<div class="button-group">
 
-      <a href="#contact" class="btn btn-primary">
-        Get a Free Quote
-      </a>
+  <a href="#contact" class="btn btn-primary">
+    Get a Free Quote
+  </a>
 
-      <a href="#services" class="btn btn-secondary">
-        View Pricing
-      </a>
+  <a href="#services" class="btn btn-secondary">
+    View Pricing
+  </a>
 
-    </div>
+</div>
+```
 
   </div>
 
@@ -635,28 +691,30 @@ footer span{
 
   <div class="container">
 
-    <div class="trust-box">
+```
+<div class="trust-box">
 
-      <div>
+  <div>
 
-        <h2>
-          Built the way
-          <em>business should be.</em>
-        </h2>
+    <h2>
+      Built the way
+      <em>business should be.</em>
+    </h2>
 
-      </div>
+  </div>
 
-      <div>
+  <div>
 
-        <p>
-          No giant agency pricing. No confusing contracts.
-          Just straightforward websites, real communication,
-          and ongoing support from a local Ohio business.
-        </p>
+    <p>
+      No giant agency pricing. No confusing contracts.
+      Just straightforward websites, real communication,
+      and ongoing support from a local Ohio business.
+    </p>
 
-      </div>
+  </div>
 
-    </div>
+</div>
+```
 
   </div>
 
@@ -670,98 +728,100 @@ footer span{
 
   <div class="container">
 
-    <p class="section-label">
-      Website Packages
+```
+<p class="section-label">
+  Website Packages
+</p>
+
+<h2 class="section-title">
+  Clear pricing.<br>
+  No surprises.
+</h2>
+
+<p class="section-sub">
+  Every website is custom-built around your business,
+  your branding, and your customers.
+</p>
+
+<div class="cards">
+
+  <div class="card">
+
+    <div class="card-number">01</div>
+
+    <h3>Starter Website</h3>
+
+    <p>
+      Perfect for businesses that need a professional online presence.
     </p>
 
-    <h2 class="section-title">
-      Clear pricing.<br>
-      No surprises.
-    </h2>
+    <ul>
+      <li>Mobile + desktop responsive design</li>
+      <li>3–5 custom pages</li>
+      <li>Contact form integration</li>
+      <li>Basic SEO setup</li>
+      <li>Domain connection help</li>
+      <li>Business branding integration</li>
+    </ul>
 
-    <p class="section-sub">
-      Every website is custom-built around your business,
-      your branding, and your customers.
-    </p>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <div class="card-number">01</div>
-
-        <h3>Starter Website</h3>
-
-        <p>
-          Perfect for businesses that need a professional online presence.
-        </p>
-
-        <ul>
-          <li>Mobile + desktop responsive design</li>
-          <li>3–5 custom pages</li>
-          <li>Contact form integration</li>
-          <li>Basic SEO setup</li>
-          <li>Domain connection help</li>
-          <li>Business branding integration</li>
-        </ul>
-
-        <div class="price">
-          $500 – $900 One-Time
-        </div>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-number">02</div>
-
-        <h3>Business Website</h3>
-
-        <p>
-          Designed for growing businesses ready for a stronger online presence.
-        </p>
-
-        <ul>
-          <li>Fully custom design</li>
-          <li>Expanded service pages</li>
-          <li>Photo galleries & portfolios</li>
-          <li>Quote request forms</li>
-          <li>SEO optimization setup</li>
-          <li>Performance optimization</li>
-          <li>Scheduling integrations</li>
-        </ul>
-
-        <div class="price">
-          $1,200 – $2,500 One-Time
-        </div>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-number">03</div>
-
-        <h3>Full Ownership</h3>
-
-        <p>
-          Full website ownership with no long-term contracts or lock-ins.
-        </p>
-
-        <ul>
-          <li>Full website source files</li>
-          <li>Hosting transfer assistance</li>
-          <li>Editable website systems</li>
-          <li>Basic walkthrough included</li>
-          <li>Full ownership rights</li>
-        </ul>
-
-        <div class="price">
-          Project Cost + Transfer Fee
-        </div>
-
-      </div>
-
+    <div class="price">
+      $500 – $900 One-Time
     </div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-number">02</div>
+
+    <h3>Business Website</h3>
+
+    <p>
+      Designed for growing businesses ready for a stronger online presence.
+    </p>
+
+    <ul>
+      <li>Fully custom design</li>
+      <li>Expanded service pages</li>
+      <li>Photo galleries & portfolios</li>
+      <li>Quote request forms</li>
+      <li>SEO optimization setup</li>
+      <li>Performance optimization</li>
+      <li>Scheduling integrations</li>
+    </ul>
+
+    <div class="price">
+      $1,200 – $2,500 One-Time
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-number">03</div>
+
+    <h3>Full Ownership</h3>
+
+    <p>
+      Full website ownership with no long-term contracts or lock-ins.
+    </p>
+
+    <ul>
+      <li>Full website source files</li>
+      <li>Hosting transfer assistance</li>
+      <li>Editable website systems</li>
+      <li>Basic walkthrough included</li>
+      <li>Full ownership rights</li>
+    </ul>
+
+    <div class="price">
+      Project Cost + Transfer Fee
+    </div>
+
+  </div>
+
+</div>
+```
 
   </div>
 
@@ -775,94 +835,96 @@ footer span{
 
   <div class="container">
 
-    <p class="section-label">
-      Care Plans
+```
+<p class="section-label">
+  Care Plans
+</p>
+
+<h2 class="section-title">
+  Ongoing support after launch.
+</h2>
+
+<p class="section-sub">
+  Whether you want occasional updates or full website management,
+  we offer flexible monthly support plans.
+</p>
+
+<div class="cards">
+
+  <div class="card">
+
+    <div class="card-number">01</div>
+
+    <h3>Basic Care</h3>
+
+    <p>
+      Essential hosting and maintenance support.
     </p>
 
-    <h2 class="section-title">
-      Ongoing support after launch.
-    </h2>
+    <ul>
+      <li>Secure website hosting</li>
+      <li>Website backups</li>
+      <li>Monthly updates</li>
+      <li>Security monitoring</li>
+      <li>Minor content edits</li>
+    </ul>
 
-    <p class="section-sub">
-      Whether you want occasional updates or full website management,
-      we offer flexible monthly support plans.
-    </p>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <div class="card-number">01</div>
-
-        <h3>Basic Care</h3>
-
-        <p>
-          Essential hosting and maintenance support.
-        </p>
-
-        <ul>
-          <li>Secure website hosting</li>
-          <li>Website backups</li>
-          <li>Monthly updates</li>
-          <li>Security monitoring</li>
-          <li>Minor content edits</li>
-        </ul>
-
-        <div class="price">
-          $49 / Month
-        </div>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-number">02</div>
-
-        <h3>Growth Care</h3>
-
-        <p>
-          Ongoing support for growing businesses.
-        </p>
-
-        <ul>
-          <li>Everything in Basic Care</li>
-          <li>Priority support</li>
-          <li>Monthly content updates</li>
-          <li>SEO performance checks</li>
-          <li>Additional page creation</li>
-        </ul>
-
-        <div class="price">
-          $99 / Month
-        </div>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-number">03</div>
-
-        <h3>Full Service Care</h3>
-
-        <p>
-          Complete website management with ongoing improvements.
-        </p>
-
-        <ul>
-          <li>Everything in Growth Care</li>
-          <li>Unlimited small edits</li>
-          <li>Landing page creation</li>
-          <li>Performance optimization</li>
-          <li>Ongoing design improvements</li>
-        </ul>
-
-        <div class="price">
-          $149 / Month
-        </div>
-
-      </div>
-
+    <div class="price">
+      $49 / Month
     </div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-number">02</div>
+
+    <h3>Growth Care</h3>
+
+    <p>
+      Ongoing support for growing businesses.
+    </p>
+
+    <ul>
+      <li>Everything in Basic Care</li>
+      <li>Priority support</li>
+      <li>Monthly content updates</li>
+      <li>SEO performance checks</li>
+      <li>Additional page creation</li>
+    </ul>
+
+    <div class="price">
+      $99 / Month
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-number">03</div>
+
+    <h3>Full Service Care</h3>
+
+    <p>
+      Complete website management with ongoing improvements.
+    </p>
+
+    <ul>
+      <li>Everything in Growth Care</li>
+      <li>Unlimited small edits</li>
+      <li>Landing page creation</li>
+      <li>Performance optimization</li>
+      <li>Ongoing design improvements</li>
+    </ul>
+
+    <div class="price">
+      $149 / Month
+    </div>
+
+  </div>
+
+</div>
+```
 
   </div>
 
@@ -876,65 +938,67 @@ footer span{
 
   <div class="container">
 
-    <p class="section-label">
-      Process
+```
+<p class="section-label">
+  Process
+</p>
+
+<h2 class="section-title">
+  Simple from start to launch.
+</h2>
+
+<div class="process-grid">
+
+  <div class="process-card">
+
+    <div class="process-number">01</div>
+
+    <h3>Consultation</h3>
+
+    <p>
+      We learn about your business, goals, and style preferences.
     </p>
 
-    <h2 class="section-title">
-      Simple from start to launch.
-    </h2>
+  </div>
 
-    <div class="process-grid">
+  <div class="process-card">
 
-      <div class="process-card">
+    <div class="process-number">02</div>
 
-        <div class="process-number">01</div>
+    <h3>Design</h3>
 
-        <h3>Consultation</h3>
+    <p>
+      We build a custom website designed around your brand and customers.
+    </p>
 
-        <p>
-          We learn about your business, goals, and style preferences.
-        </p>
+  </div>
 
-      </div>
+  <div class="process-card">
 
-      <div class="process-card">
+    <div class="process-number">03</div>
 
-        <div class="process-number">02</div>
+    <h3>Launch</h3>
 
-        <h3>Design</h3>
+    <p>
+      Your website goes live fully optimized for mobile and desktop.
+    </p>
 
-        <p>
-          We build a custom website designed around your brand and customers.
-        </p>
+  </div>
 
-      </div>
+  <div class="process-card">
 
-      <div class="process-card">
+    <div class="process-number">04</div>
 
-        <div class="process-number">03</div>
+    <h3>Support</h3>
 
-        <h3>Launch</h3>
+    <p>
+      Ongoing updates and support available anytime after launch.
+    </p>
 
-        <p>
-          Your website goes live fully optimized for mobile and desktop.
-        </p>
+  </div>
 
-      </div>
-
-      <div class="process-card">
-
-        <div class="process-number">04</div>
-
-        <h3>Support</h3>
-
-        <p>
-          Ongoing updates and support available anytime after launch.
-        </p>
-
-      </div>
-
-    </div>
+</div>
+```
 
   </div>
 
@@ -948,38 +1012,40 @@ footer span{
 
   <div class="container">
 
-    <p class="section-label">
-      FAQ
+```
+<p class="section-label">
+  FAQ
+</p>
+
+<h2 class="section-title">
+  Questions people usually ask.
+</h2>
+
+<div class="faq-grid">
+
+  <div class="faq-item">
+    <h3>How long does a website take?</h3>
+    <p>
+      Most websites launch within 1–3 weeks depending on the project size.
     </p>
+  </div>
 
-    <h2 class="section-title">
-      Questions people usually ask.
-    </h2>
+  <div class="faq-item">
+    <h3>Do you build for mobile devices?</h3>
+    <p>
+      Yes. Every website is fully responsive for phones, tablets, and desktops.
+    </p>
+  </div>
 
-    <div class="faq-grid">
+  <div class="faq-item">
+    <h3>Can I update the site myself?</h3>
+    <p>
+      Absolutely. We can provide editable systems or manage updates for you.
+    </p>
+  </div>
 
-      <div class="faq-item">
-        <h3>How long does a website take?</h3>
-        <p>
-          Most websites launch within 1–3 weeks depending on the project size.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Do you build for mobile devices?</h3>
-        <p>
-          Yes. Every website is fully responsive for phones, tablets, and desktops.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Can I update the site myself?</h3>
-        <p>
-          Absolutely. We can provide editable systems or manage updates for you.
-        </p>
-      </div>
-
-    </div>
+</div>
+```
 
   </div>
 
@@ -993,83 +1059,97 @@ footer span{
 
   <div class="container">
 
-    <div class="contact-wrap">
+```
+<div class="contact-wrap">
 
-      <p class="section-label">
-        Contact
-      </p>
+  <p class="section-label">
+    Contact
+  </p>
 
-      <h2 class="section-title">
-        Let’s build something solid.
-      </h2>
+  <h2 class="section-title">
+    Let's build something solid.
+  </h2>
 
-      <p class="section-sub">
-        Fill out the form below and we’ll reach out within one business day.
-      </p>
+  <p class="section-sub">
+    Fill out the form below and we'll reach out within one business day.
+  </p>
 
-      <form
-        class="contact-form"
-        action="https://formspree.io/f/your-form-id"
-        method="POST"
-      >
+  <!-- Confirmation message (hidden until form submitted) -->
+  <div class="confirmation" id="confirmation">
+    <div class="confirmation-icon">
+      <svg viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h3>Message received!</h3>
+    <p>Thanks for reaching out — we'll be in touch within one business day.</p>
+  </div>
 
-        <div class="form-row">
+  <form
+    id="contact-form"
+    class="contact-form"
+    action="https://formspree.io/f/xvzldvwb"
+    method="POST"
+  >
 
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-          />
+    <div class="form-row">
 
-          <input
-            type="text"
-            name="business"
-            placeholder="Business Name"
-          />
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required
+      />
 
-        </div>
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          required
-        />
-
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Phone Number"
-        />
-
-        <select name="service">
-
-          <option value="">
-            What are you interested in?
-          </option>
-
-          <option>Starter Website</option>
-          <option>Business Website</option>
-          <option>Monthly Care Plan</option>
-
-        </select>
-
-        <textarea
-          name="message"
-          placeholder="Tell us about your business..."
-        ></textarea>
-
-        <button
-          type="submit"
-          class="btn btn-primary"
-        >
-          Send Message
-        </button>
-
-      </form>
+      <input
+        type="text"
+        name="business"
+        placeholder="Business Name"
+      />
 
     </div>
+
+    <input
+      type="email"
+      name="email"
+      placeholder="Email Address"
+      required
+    />
+
+    <input
+      type="tel"
+      name="phone"
+      placeholder="Phone Number"
+    />
+
+    <select name="service">
+
+      <option value="">
+        What are you interested in?
+      </option>
+
+      <option>Starter Website</option>
+      <option>Business Website</option>
+      <option>Monthly Care Plan</option>
+
+    </select>
+
+    <textarea
+      name="message"
+      placeholder="Tell us about your business..."
+    ></textarea>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+    >
+      Send Message
+    </button>
+
+  </form>
+
+</div>
+```
 
   </div>
 
@@ -1088,6 +1168,34 @@ footer span{
   </p>
 
 </footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const confirmation = document.getElementById('confirmation');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        confirmation.classList.add('visible');
+      } else {
+        alert('Something went wrong. Please try again or email us directly.');
+      }
+    } catch (err) {
+      alert('Something went wrong. Please try again or email us directly.');
+    }
+  });
+</script>
 
 </body>
 </html>
